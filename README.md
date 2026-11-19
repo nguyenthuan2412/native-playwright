@@ -69,6 +69,8 @@ sudo apt-get install -y build-essential libgmp-dev libmpfr-dev
 pie install nguyenthuan2412/native-playwright
 ```
 
+Then install Chrome: see [Installing Chrome](#installing-chrome).
+
 ### Install with PECL
 
 Each [GitHub release](https://github.com/nguyenthuan2412/native-playwright/releases) ships a PECL package:
@@ -100,25 +102,106 @@ php --ri native_playwright
 
 The extension statically embeds the PHPX runtime. At runtime it only needs the system `libgmp` and `libmpfr`.
 
-### Installing Chromium
+### Installing Chrome
 
-Native Playwright looks for a browser in this order:
+PIE and PECL install **only the extension**. Native Playwright also needs a Chrome binary on the machine. Install one (option A, B or C), find where it is, and give that path to Native Playwright.
 
-1. The `NATIVE_PLAYWRIGHT_CHROME` environment variable
-2. The `executablePath` launch option
-3. Standard install locations, preferring `chrome-headless-shell`
+#### Option A: Debian, or Debian-based Docker images (recommended)
 
 ```bash
-# Debian / Ubuntu
-apt-get install chromium-headless-shell
-export NATIVE_PLAYWRIGHT_CHROME=/usr/lib/chromium/chromium-headless-shell
+sudo apt-get install -y chromium-headless-shell
 ```
 
-Use `chrome-headless-shell` where possible. Full Chromium in headless mode still builds browser UI for every page and uses about 3× more RAM (see [Performance](#7-performance)).
+This installs `/usr/lib/chromium/chromium-headless-shell`, which Native Playwright finds on its own, so there is nothing else to configure. It works on x86_64 and arm64. The official `php:*` Docker images are Debian-based:
+
+```dockerfile
+FROM php:8.5-cli
+RUN apt-get update && apt-get install -y --no-install-recommends chromium-headless-shell libgmp-dev libmpfr-dev
+```
+
+#### Option B: Chrome for Testing (Ubuntu, other Linux x86_64, macOS)
+
+Google publishes `chrome-headless-shell` builds at <https://googlechromelabs.github.io/chrome-for-testing/>. In the **Stable** section, copy the `chrome-headless-shell` URL for your platform (`linux64`, `mac-arm64` or `mac-x64`), then download and unzip it:
+
+```bash
+cd /opt
+sudo curl -fsSLO "<URL copied from the page>"
+sudo unzip -q chrome-headless-shell-linux64.zip      # mac: chrome-headless-shell-mac-arm64.zip
+# binary: /opt/chrome-headless-shell-linux64/chrome-headless-shell
+```
+
+If Node.js is available, this one command does the same and prints the path at the end:
+
+```bash
+npx @puppeteer/browsers install chrome-headless-shell@stable
+```
+
+On **Ubuntu** the browser also needs some system libraries (package names for Ubuntu 24.04; on 22.04 drop the `t64` suffix):
+
+```bash
+sudo apt-get install -y libnss3 libnspr4 libatk1.0-0t64 libatk-bridge2.0-0t64 libcups2t64 libdrm2 \
+  libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libasound2t64 \
+  libatspi2.0-0t64 libpango-1.0-0 libcairo2 libxshmfence1 fonts-liberation
+```
+
+To check, run `ldd /path/to/chrome-headless-shell | grep "not found"`. If it prints nothing, no library is missing.
+
+Chrome for Testing has no Linux arm64 build. On arm64, use option A.
+
+#### Option C: Google Chrome or Chromium you already have
+
+A normal Chrome or Chromium install works as well, but it uses about 3× more RAM than `chrome-headless-shell` (see [Performance](#7-performance)).
+
+#### Finding the path
+
+| Installed with | How to find the binary |
+|---|---|
+| `apt install chromium-headless-shell` | `/usr/lib/chromium/chromium-headless-shell` (or `dpkg -L chromium-headless-shell`) |
+| Chrome for Testing zip | the folder you unzipped into, or `find / -name chrome-headless-shell -type f 2>/dev/null` |
+| `npx @puppeteer/browsers` | printed on the last line of the install command |
+| Google Chrome on Linux | `which google-chrome` |
+| Google Chrome on macOS | `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome` |
+
+Check that the path works:
+
+```bash
+"/opt/chrome-headless-shell-linux64/chrome-headless-shell" --version
+```
+
+#### Giving the path to Native Playwright
+
+Pass it when launching:
+
+```php
+$browser = Playwright::chromium()->launch([
+    'executablePath' => '/opt/chrome-headless-shell-linux64/chrome-headless-shell',
+]);
+```
+
+Or set it once for the whole application with an environment variable:
+
+```bash
+export NATIVE_PLAYWRIGHT_CHROME=/opt/chrome-headless-shell-linux64/chrome-headless-shell
+```
+
+| Where your PHP runs | How to set the variable |
+|---|---|
+| CLI / Swoole server | `export NATIVE_PLAYWRIGHT_CHROME=...` before starting PHP |
+| PHP-FPM | `env[NATIVE_PLAYWRIGHT_CHROME] = /path/...` in the pool config (e.g. `www.conf`) |
+| Docker | `ENV NATIVE_PLAYWRIGHT_CHROME=/path/...` in the Dockerfile |
+
+Native Playwright picks the browser in this order:
+
+1. The `executablePath` launch option
+2. The `NATIVE_PLAYWRIGHT_CHROME` environment variable
+3. These locations, checked one by one (no configuration needed if your browser is here):
+   `/usr/lib/chromium/chromium-headless-shell`, `/usr/bin/chromium-headless-shell`, `/usr/bin/chrome-headless-shell`, `/opt/google/chrome-headless-shell/chrome-headless-shell`, `/usr/lib/chromium/chromium`, `/usr/bin/chromium`, `/usr/bin/chromium-browser`, `/usr/bin/google-chrome`, `/opt/google/chrome/chrome`, `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`, `/Applications/Chromium.app/Contents/MacOS/Chromium`
 
 ---
 
 ## 2. Quick start
+
+> You need the extension **and** a Chrome binary: see [Installing Chrome](#installing-chrome).
 
 ```php
 <?php
@@ -841,7 +924,7 @@ Note: Native Playwright **disables site isolation by default** to save RAM. If y
 
 | Symptom | Cause and fix |
 |---|---|
-| `Chromium not found` | Set `NATIVE_PLAYWRIGHT_CHROME`, or pass `executablePath` to `launch()` |
+| `Chromium not found` | Install Chrome and give its path: see [Installing Chrome](#installing-chrome) |
 | `configure: error: gmp.h not found` | Install `libgmp-dev libmpfr-dev` (or pass `--with-gmp-dir=PREFIX`) |
 | The extension fails to load with an API version mismatch | Reinstall with PIE/PECL for the PHP binary you run (`pie install` uses the `php` on your PATH) |
 | Chromium exits immediately when running as root | Keep `chromiumSandbox => false` (the default) |

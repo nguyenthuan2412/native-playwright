@@ -69,6 +69,8 @@ sudo apt-get install -y build-essential libgmp-dev libmpfr-dev
 pie install nguyenthuan2412/native-playwright
 ```
 
+Sau đó cài Chrome: xem [Cài Chrome](#cài-chrome).
+
 ### Cài bằng PECL
 
 Mỗi [GitHub release](https://github.com/nguyenthuan2412/native-playwright/releases) đều kèm một gói PECL:
@@ -100,25 +102,106 @@ php --ri native_playwright
 
 Extension đã nhúng tĩnh runtime PHPX. Khi chạy chỉ cần `libgmp` và `libmpfr` của hệ thống.
 
-### Cài Chromium
+### Cài Chrome
 
-Native Playwright tìm trình duyệt theo thứ tự sau:
+PIE và PECL **chỉ cài extension**. Native Playwright còn cần một file chạy Chrome trên máy. Hãy cài theo một trong ba cách A, B, C bên dưới, tìm đường dẫn tới file đó, rồi truyền đường dẫn cho Native Playwright.
 
-1. Biến môi trường `NATIVE_PLAYWRIGHT_CHROME`
-2. Tuỳ chọn `executablePath` khi launch
-3. Các đường dẫn chuẩn, ưu tiên `chrome-headless-shell`
+#### Cách A: Debian, hoặc Docker image dựa trên Debian (khuyến nghị)
 
 ```bash
-# Debian / Ubuntu
-apt-get install chromium-headless-shell
-export NATIVE_PLAYWRIGHT_CHROME=/usr/lib/chromium/chromium-headless-shell
+sudo apt-get install -y chromium-headless-shell
 ```
 
-Nên dùng `chrome-headless-shell`. Chromium bản đầy đủ chạy headless vẫn dựng thêm phần UI cho mỗi page, nên tốn RAM gấp khoảng 3 lần (xem [Hiệu năng](#7-hiệu-năng)).
+Lệnh này cài `/usr/lib/chromium/chromium-headless-shell`. Native Playwright tự tìm thấy file này nên không cần cấu hình gì thêm. Chạy được trên cả x86_64 và arm64. Các image Docker `php:*` chính thức đều dựa trên Debian:
+
+```dockerfile
+FROM php:8.5-cli
+RUN apt-get update && apt-get install -y --no-install-recommends chromium-headless-shell libgmp-dev libmpfr-dev
+```
+
+#### Cách B: Chrome for Testing (Ubuntu, Linux x86_64 khác, macOS)
+
+Google phát hành bản `chrome-headless-shell` tại <https://googlechromelabs.github.io/chrome-for-testing/>. Trong mục **Stable**, copy URL `chrome-headless-shell` đúng nền tảng của bạn (`linux64`, `mac-arm64` hoặc `mac-x64`), rồi tải về và giải nén:
+
+```bash
+cd /opt
+sudo curl -fsSLO "<URL copy từ trang trên>"
+sudo unzip -q chrome-headless-shell-linux64.zip      # mac: chrome-headless-shell-mac-arm64.zip
+# file chạy: /opt/chrome-headless-shell-linux64/chrome-headless-shell
+```
+
+Nếu máy có Node.js, một lệnh sau làm việc tương tự và in đường dẫn ở dòng cuối:
+
+```bash
+npx @puppeteer/browsers install chrome-headless-shell@stable
+```
+
+Trên **Ubuntu**, trình duyệt cần thêm một số thư viện hệ thống (tên gói cho Ubuntu 24.04; trên 22.04 bỏ hậu tố `t64`):
+
+```bash
+sudo apt-get install -y libnss3 libnspr4 libatk1.0-0t64 libatk-bridge2.0-0t64 libcups2t64 libdrm2 \
+  libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libasound2t64 \
+  libatspi2.0-0t64 libpango-1.0-0 libcairo2 libxshmfence1 fonts-liberation
+```
+
+Để kiểm tra, chạy `ldd /đường/dẫn/chrome-headless-shell | grep "not found"`. Không in ra gì nghĩa là không thiếu thư viện nào.
+
+Chrome for Testing không có bản cho Linux arm64. Trên arm64 hãy dùng cách A.
+
+#### Cách C: Dùng Google Chrome hoặc Chromium có sẵn
+
+Chrome hoặc Chromium bản thường cũng chạy được, nhưng tốn RAM gấp khoảng 3 lần `chrome-headless-shell` (xem [Hiệu năng](#7-hiệu-năng)).
+
+#### Tìm đường dẫn
+
+| Cài bằng | Cách tìm file chạy |
+|---|---|
+| `apt install chromium-headless-shell` | `/usr/lib/chromium/chromium-headless-shell` (hoặc `dpkg -L chromium-headless-shell`) |
+| File zip Chrome for Testing | thư mục bạn đã giải nén vào, hoặc `find / -name chrome-headless-shell -type f 2>/dev/null` |
+| `npx @puppeteer/browsers` | in ở dòng cuối của lệnh cài |
+| Google Chrome trên Linux | `which google-chrome` |
+| Google Chrome trên macOS | `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome` |
+
+Kiểm tra đường dẫn chạy được:
+
+```bash
+"/opt/chrome-headless-shell-linux64/chrome-headless-shell" --version
+```
+
+#### Truyền đường dẫn cho Native Playwright
+
+Truyền khi launch:
+
+```php
+$browser = Playwright::chromium()->launch([
+    'executablePath' => '/opt/chrome-headless-shell-linux64/chrome-headless-shell',
+]);
+```
+
+Hoặc đặt một lần cho cả ứng dụng bằng biến môi trường:
+
+```bash
+export NATIVE_PLAYWRIGHT_CHROME=/opt/chrome-headless-shell-linux64/chrome-headless-shell
+```
+
+| PHP chạy ở đâu | Cách đặt biến |
+|---|---|
+| CLI / Swoole server | `export NATIVE_PLAYWRIGHT_CHROME=...` trước khi chạy PHP |
+| PHP-FPM | `env[NATIVE_PLAYWRIGHT_CHROME] = /đường/dẫn/...` trong file cấu hình pool (ví dụ `www.conf`) |
+| Docker | `ENV NATIVE_PLAYWRIGHT_CHROME=/đường/dẫn/...` trong Dockerfile |
+
+Native Playwright chọn trình duyệt theo thứ tự:
+
+1. Tuỳ chọn `executablePath` khi launch
+2. Biến môi trường `NATIVE_PLAYWRIGHT_CHROME`
+3. Lần lượt các vị trí sau (trình duyệt nằm ở đây thì không cần cấu hình gì):
+   `/usr/lib/chromium/chromium-headless-shell`, `/usr/bin/chromium-headless-shell`, `/usr/bin/chrome-headless-shell`, `/opt/google/chrome-headless-shell/chrome-headless-shell`, `/usr/lib/chromium/chromium`, `/usr/bin/chromium`, `/usr/bin/chromium-browser`, `/usr/bin/google-chrome`, `/opt/google/chrome/chrome`, `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`, `/Applications/Chromium.app/Contents/MacOS/Chromium`
 
 ---
 
 ## 2. Bắt đầu nhanh
+
+> Cần cả extension **và** một file chạy Chrome: xem [Cài Chrome](#cài-chrome).
 
 ```php
 <?php
@@ -841,7 +924,7 @@ Lưu ý: mặc định Native Playwright **tắt site isolation** để tiết k
 
 | Triệu chứng | Nguyên nhân và cách xử lý |
 |---|---|
-| `Chromium not found` | Đặt `NATIVE_PLAYWRIGHT_CHROME`, hoặc truyền `executablePath` khi launch |
+| `Chromium not found` | Cài Chrome và truyền đường dẫn: xem [Cài Chrome](#cài-chrome) |
 | `configure: error: gmp.h not found` | Cài `libgmp-dev libmpfr-dev` (hoặc truyền `--with-gmp-dir=PREFIX`) |
 | Nạp extension báo sai phiên bản API | Cài lại bằng PIE/PECL cho đúng binary PHP đang chạy (`pie install` dùng `php` trong PATH) |
 | Chromium thoát ngay khi chạy bằng root | Giữ `chromiumSandbox => false` (mặc định) |
