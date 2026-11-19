@@ -848,7 +848,7 @@ Note: Native Playwright **disables site isolation by default** to save RAM. If y
 | `Timeout ... exceeded` with `element is not visible / not enabled / intercepts pointer events` | The last line of the call log shows which condition wasn't met |
 | High RAM usage | Use `chrome-headless-shell`, close contexts when done, and don't launch a new browser per task |
 | Hangs in a Swoole server | Don't launch before the fork; always launch in `workerStart` |
-| Segmentation fault at exit when using Swoole | Xdebug is loaded. Swoole is incompatible with Xdebug (it crashes even without Native Playwright); disable Xdebug for Swoole processes, e.g. `php -d xdebug.mode=off` does **not** help, remove the extension or run with `php -n -d extension=swoole -d extension=native_playwright` |
+| Segmentation fault at exit when using Swoole | Xdebug is loaded. Swoole is incompatible with Xdebug (it crashes even without Native Playwright); run Swoole processes with `-d xdebug.mode=off`, or don't load Xdebug at all |
 
 ---
 

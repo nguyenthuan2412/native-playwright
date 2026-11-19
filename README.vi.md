@@ -847,7 +847,7 @@ Lưu ý: mặc định Native Playwright **tắt site isolation** để tiết k
 | `strict mode violation` | Locator khớp nhiều phần tử; thu hẹp bằng `first()`, `nth()` hoặc `filter()` |
 | `Timeout ... exceeded` kèm `element is not visible / not enabled / intercepts pointer events` | Dòng cuối của call log cho biết điều kiện nào chưa đạt |
 | RAM cao | Dùng `chrome-headless-shell`, đóng context sau khi xong, tránh mở trình duyệt mới cho mỗi tác vụ |
-| Segmentation fault lúc thoát khi dùng Swoole | Đang nạp Xdebug. Swoole không tương thích với Xdebug (crash ngay cả khi không có Native Playwright); tắt hẳn Xdebug cho process Swoole (`xdebug.mode=off` là **không** đủ), hoặc chạy `php -n -d extension=swoole -d extension=native_playwright` |
+| Segmentation fault lúc thoát khi dùng Swoole | Đang nạp Xdebug. Swoole không tương thích với Xdebug (crash ngay cả khi không có Native Playwright); chạy process Swoole với `-d xdebug.mode=off`, hoặc không nạp Xdebug |
 | Treo trong Swoole server | Không launch trước khi fork; luôn launch trong `workerStart` |
 
 ---
