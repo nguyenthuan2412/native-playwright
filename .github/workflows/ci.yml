@@ -20,6 +20,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           extensions: swoole
+          coverage: none          # Xdebug is incompatible with Swoole coroutines
           tools: phpize, php-config
 
       - name: Build dependencies
@@ -50,4 +51,4 @@ jobs:
           php -S 127.0.0.1:8001 -t tests/www >/dev/null 2>&1 &
           php -S 127.0.0.1:8002 -t tests/www >/dev/null 2>&1 &
           sleep 1
-          gdb -batch -ex run -ex bt -ex 'info sharedlibrary' --args php -d extension="$PWD/ext/modules/native_playwright.so" tests/e2e.php swoole 2>&1 | tail -80
+          gdb -batch -ex run -ex 'bt 40' --args php -d extension="$PWD/ext/modules/native_playwright.so" tests/e2e.php swoole 2>&1 | grep -vE 'PASS|^\[New Thread|^\[Thread' | tail -60
