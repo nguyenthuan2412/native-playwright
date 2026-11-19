@@ -75,7 +75,8 @@ Each [GitHub release](https://github.com/nguyenthuan2412/native-playwright/relea
 
 ```bash
 sudo apt-get install -y build-essential libgmp-dev libmpfr-dev
-pecl install https://github.com/nguyenthuan2412/native-playwright/releases/download/v0.1.0/native_playwright-0.1.0.tgz
+curl -fsSLO https://github.com/nguyenthuan2412/native-playwright/releases/download/v0.1.0/native_playwright-0.1.0.tgz
+pecl install ./native_playwright-0.1.0.tgz
 echo "extension=native_playwright" > "$(php-config --ini-dir)/native_playwright.ini"
 ```
 
