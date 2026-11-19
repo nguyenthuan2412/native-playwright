@@ -3,9 +3,9 @@
 // php tools/package-xml.php <ext-dir> <version>
 [$_, $dir, $version] = $argv;
 $lead = [
-    'name'  => getenv('MAINTAINER_NAME') ?: 'Native Playwright maintainers',
-    'user'  => getenv('MAINTAINER_USER') ?: 'native-playwright',
-    'email' => getenv('MAINTAINER_EMAIL') ?: 'maintainers@example.invalid',
+    'name'  => getenv('MAINTAINER_NAME') ?: 'nguyenthuan2412',
+    'user'  => getenv('MAINTAINER_USER') ?: 'nguyenthuan2412',
+    'email' => getenv('MAINTAINER_EMAIL') ?: 'thuanvp012van@gmail.com',
 ];
 $files = [];
 $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS));

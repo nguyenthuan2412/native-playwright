@@ -1,10 +1,10 @@
 {
-    "name": "__VENDOR__/native-playwright",
+    "name": "nguyenthuan2412/native-playwright",
     "description": "Playwright-style browser automation for PHP over CDP, without Node.js. Works in Swoole coroutines.",
     "type": "php-ext",
     "license": "Apache-2.0",
     "keywords": ["playwright", "browser", "automation", "chromium", "cdp", "headless", "swoole", "scraping", "testing"],
-    "homepage": "https://github.com/__VENDOR__/native-playwright",
+    "homepage": "https://github.com/nguyenthuan2412/native-playwright",
     "require": {
         "php": ">=8.4 <8.6"
     },

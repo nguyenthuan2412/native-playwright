@@ -66,16 +66,16 @@ Native Playwright là một PHP extension native. Mã nguồn viết bằng PHP 
 # thư viện cần để build (Debian/Ubuntu; RHEL dùng gmp-devel mpfr-devel, macOS dùng "brew install gmp mpfr")
 sudo apt-get install -y build-essential libgmp-dev libmpfr-dev
 
-pie install __VENDOR__/native-playwright
+pie install nguyenthuan2412/native-playwright
 ```
 
 ### Cài bằng PECL
 
-Mỗi [GitHub release](https://github.com/__VENDOR__/native-playwright/releases) đều kèm một gói PECL:
+Mỗi [GitHub release](https://github.com/nguyenthuan2412/native-playwright/releases) đều kèm một gói PECL:
 
 ```bash
 sudo apt-get install -y build-essential libgmp-dev libmpfr-dev
-pecl install https://github.com/__VENDOR__/native-playwright/releases/download/v0.1.0/native_playwright-0.1.0.tgz
+pecl install https://github.com/nguyenthuan2412/native-playwright/releases/download/v0.1.0/native_playwright-0.1.0.tgz
 echo "extension=native_playwright" > "$(php-config --ini-dir)/native_playwright.ini"
 ```
 
