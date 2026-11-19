@@ -287,7 +287,10 @@ final class Browser
         }
         $this->pages = [];
         $this->sessions = [];
+        $this->pageWaiters = [];
+        $this->downloads = [];
         $this->emit('disconnected', $this);
+        $this->contexts = [];
     }
 
     public function close(): void

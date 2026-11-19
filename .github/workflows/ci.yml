@@ -23,7 +23,10 @@ jobs:
           tools: phpize, php-config
 
       - name: Build dependencies
-        run: sudo apt-get update && sudo apt-get install -y libgmp-dev libmpfr-dev
+        run: sudo apt-get update && sudo apt-get install -y libgmp-dev libmpfr-dev gdb
+
+      - name: Environment
+        run: php -v && php --ri swoole | grep -i version
 
       - name: Build extension (phpize, as PECL/PIE do)
         working-directory: ext
@@ -40,3 +43,11 @@ jobs:
 
       - name: End-to-end tests (blocking + Swoole)
         run: EXT="$PWD/ext/modules/native_playwright.so" tests/run.sh
+
+      - name: Backtrace on crash
+        if: failure()
+        run: |
+          php -S 127.0.0.1:8001 -t tests/www >/dev/null 2>&1 &
+          php -S 127.0.0.1:8002 -t tests/www >/dev/null 2>&1 &
+          sleep 1
+          gdb -batch -ex run -ex bt -ex 'info sharedlibrary' --args php -d extension="$PWD/ext/modules/native_playwright.so" tests/e2e.php swoole 2>&1 | tail -80

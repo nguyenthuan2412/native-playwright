@@ -837,9 +837,13 @@ final class Page
             $f->detached = true;
         }
         $this->requests = [];
+        $this->navRequests = [];
+        $this->routes = [];
+        $this->bindings = [];
         $this->poke();
         $this->emit('close', $this);
         $this->context->pageClosed($this);
+        $this->removeAllListeners();
     }
 
     public function isClosed(): bool

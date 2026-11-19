@@ -169,12 +169,16 @@ abstract class Transport
             $w->reject($err);
         }
         $this->waiters = [];
-        foreach ($this->closeListeners as $fn) {
+        $fns = $this->closeListeners;
+        $this->closeListeners = [];
+        foreach ($fns as $fn) {
             try {
                 $fn();
             } catch (\Throwable $e) {
             }
         }
-        $this->closeListeners = [];
+        // break transport <-> listener closure cycles so nothing (e.g. Swoole Channels)
+        // survives until engine shutdown
+        $this->listeners = [];
     }
 }

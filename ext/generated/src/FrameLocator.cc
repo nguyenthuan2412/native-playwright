@@ -14,8 +14,8 @@
 #include <php_native_playwright_src_NativePlaywright_Locator_206b2f41f4_decl.h>
 
 void php_nativeplaywright__framelocator____construct(php::Object &this_, php::Object frame, php::Str frameSelector) {
-typephp_write_property_scoped(this_, "frame", frame, get_persistent_class(PersistentClassId{10}, get_str(307)));
-typephp_write_property_scoped(this_, "frameSelector", frameSelector, get_persistent_class(PersistentClassId{10}, get_str(307)));
+typephp_write_property_scoped(this_, "frame", frame, get_persistent_class(PersistentClassId{10}, get_str(308)));
+typephp_write_property_scoped(this_, "frameSelector", frameSelector, get_persistent_class(PersistentClassId{10}, get_str(308)));
 
 }
 
@@ -25,10 +25,10 @@ php::Object php_nativeplaywright__framelocator__inside(php::Object &this_, php::
     php::Var tmp_var_3;
     php::Var tmp_var_4;
     php::Object tmp_var_5;
-    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{11}, get_str(310));
+    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{11}, get_str(311));
 
-    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(308), get_str(307)), php::AttrMode::Get);
-    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(309), get_str(307)), php::AttrMode::Get);
+    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(309), get_str(308)), php::AttrMode::Get);
+    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(310), get_str(308)), php::AttrMode::Get);
     tmp_var_3 = get_str(21);
     tmp_var_4 = php::concat({tmp_var_2, tmp_var_3, sel});
     tmp_var_2.unset();
@@ -43,12 +43,12 @@ php::Object php_nativeplaywright__framelocator__locator(php::Object &this_, php:
     php::Var sel;
     php::Object tmp_var_0;
     php::Object tmp_var_1;
-    if (UNEXPECTED(!(selector.isString() || (selector.isObject() && php::instanceOf(selector, get_persistent_class(PersistentClassId{11}, get_str(310))))))) {
-        php::throwArgumentTypeError(selector, get_str(316), 1, get_str(311), get_str(317));
+    if (UNEXPECTED(!(selector.isString() || (selector.isObject() && php::instanceOf(selector, get_persistent_class(PersistentClassId{11}, get_str(311))))))) {
+        php::throwArgumentTypeError(selector, get_str(317), 1, get_str(312), get_str(318));
     }
 
-    sel = (php::toBool(php::instanceOf(selector, get_persistent_class(PersistentClassId{11}, get_str(310))))) ? (typephp_call_method_cached(selector, get_str(311), get_method_call_cache(MethodCallCacheId{12}))) : (selector);
-    tmp_var_0 = php_nativeplaywright__framelocator__inside(this_, php::toStringArgExact(sel, get_str(313), 1, get_str(314)));
+    sel = (php::toBool(php::instanceOf(selector, get_persistent_class(PersistentClassId{11}, get_str(311))))) ? (typephp_call_method_cached(selector, get_str(312), get_method_call_cache(MethodCallCacheId{9}))) : (selector);
+    tmp_var_0 = php_nativeplaywright__framelocator__inside(this_, php::toStringArgExact(sel, get_str(314), 1, get_str(315)));
     tmp_var_1 = (php_nativeplaywright__locator__filter(tmp_var_0, options));
     tmp_var_0.unset();
     return tmp_var_1;
@@ -62,10 +62,10 @@ php::Object php_nativeplaywright__framelocator__getbytext(php::Object &this_, ph
     php::Object tmp_var_4;
     php::Var tmp_var_5;
     php::Object tmp_var_6;
-    Z_PTR_P(tmp_var_4.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(310));
+    Z_PTR_P(tmp_var_4.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(311));
 
     tmp_var_0 = text;
-    if (php::exists(options, {{php::ArrayDimFetch, php::Var(get_str(318))}}, tmp_var_2)) {
+    if (php::exists(options, {{php::ArrayDimFetch, php::Var(get_str(319))}}, tmp_var_2)) {
         tmp_var_1 = tmp_var_2;
     } else {
         tmp_var_1 = false;
@@ -82,7 +82,7 @@ php::Object php_nativeplaywright__framelocator__getbyrole(php::Object &this_, ph
     php::Object tmp_var_0;
     php::Var tmp_var_1;
     php::Object tmp_var_2;
-    Z_PTR_P(tmp_var_0.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(310));
+    Z_PTR_P(tmp_var_0.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(311));
 
     tmp_var_1 = php_nativeplaywright__locator__byrole(tmp_var_0, role, options);
     tmp_var_2 = (php_nativeplaywright__framelocator__inside(this_, tmp_var_1));
@@ -98,10 +98,10 @@ php::Object php_nativeplaywright__framelocator__getbylabel(php::Object &this_, p
     php::Object tmp_var_4;
     php::Var tmp_var_5;
     php::Object tmp_var_6;
-    Z_PTR_P(tmp_var_4.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(310));
+    Z_PTR_P(tmp_var_4.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(311));
 
     tmp_var_0 = text;
-    if (php::exists(options, {{php::ArrayDimFetch, php::Var(get_str(318))}}, tmp_var_2)) {
+    if (php::exists(options, {{php::ArrayDimFetch, php::Var(get_str(319))}}, tmp_var_2)) {
         tmp_var_1 = tmp_var_2;
     } else {
         tmp_var_1 = false;
@@ -122,16 +122,16 @@ php::Object php_nativeplaywright__framelocator__getbyplaceholder(php::Object &th
     php::Object tmp_var_4;
     php::Var tmp_var_5;
     php::Object tmp_var_6;
-    Z_PTR_P(tmp_var_4.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(310));
+    Z_PTR_P(tmp_var_4.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(311));
 
     tmp_var_0 = text;
-    if (php::exists(options, {{php::ArrayDimFetch, php::Var(get_str(318))}}, tmp_var_2)) {
+    if (php::exists(options, {{php::ArrayDimFetch, php::Var(get_str(319))}}, tmp_var_2)) {
         tmp_var_1 = tmp_var_2;
     } else {
         tmp_var_1 = false;
     }
     tmp_var_3 = php::toBool(tmp_var_1);
-    tmp_var_5 = php_nativeplaywright__locator__byattr(tmp_var_4, get_str(319), tmp_var_0, php::toBool(tmp_var_3));
+    tmp_var_5 = php_nativeplaywright__locator__byattr(tmp_var_4, get_str(320), tmp_var_0, php::toBool(tmp_var_3));
     tmp_var_0.unset();
     tmp_var_6 = (php_nativeplaywright__framelocator__inside(this_, tmp_var_5));
     tmp_var_5.unset();
@@ -146,16 +146,16 @@ php::Object php_nativeplaywright__framelocator__getbyalttext(php::Object &this_,
     php::Object tmp_var_4;
     php::Var tmp_var_5;
     php::Object tmp_var_6;
-    Z_PTR_P(tmp_var_4.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(310));
+    Z_PTR_P(tmp_var_4.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(311));
 
     tmp_var_0 = text;
-    if (php::exists(options, {{php::ArrayDimFetch, php::Var(get_str(318))}}, tmp_var_2)) {
+    if (php::exists(options, {{php::ArrayDimFetch, php::Var(get_str(319))}}, tmp_var_2)) {
         tmp_var_1 = tmp_var_2;
     } else {
         tmp_var_1 = false;
     }
     tmp_var_3 = php::toBool(tmp_var_1);
-    tmp_var_5 = php_nativeplaywright__locator__byattr(tmp_var_4, get_str(320), tmp_var_0, php::toBool(tmp_var_3));
+    tmp_var_5 = php_nativeplaywright__locator__byattr(tmp_var_4, get_str(321), tmp_var_0, php::toBool(tmp_var_3));
     tmp_var_0.unset();
     tmp_var_6 = (php_nativeplaywright__framelocator__inside(this_, tmp_var_5));
     tmp_var_5.unset();
@@ -170,16 +170,16 @@ php::Object php_nativeplaywright__framelocator__getbytitle(php::Object &this_, p
     php::Object tmp_var_4;
     php::Var tmp_var_5;
     php::Object tmp_var_6;
-    Z_PTR_P(tmp_var_4.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(310));
+    Z_PTR_P(tmp_var_4.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(311));
 
     tmp_var_0 = text;
-    if (php::exists(options, {{php::ArrayDimFetch, php::Var(get_str(318))}}, tmp_var_2)) {
+    if (php::exists(options, {{php::ArrayDimFetch, php::Var(get_str(319))}}, tmp_var_2)) {
         tmp_var_1 = tmp_var_2;
     } else {
         tmp_var_1 = false;
     }
     tmp_var_3 = php::toBool(tmp_var_1);
-    tmp_var_5 = php_nativeplaywright__locator__byattr(tmp_var_4, get_str(321), tmp_var_0, php::toBool(tmp_var_3));
+    tmp_var_5 = php_nativeplaywright__locator__byattr(tmp_var_4, get_str(322), tmp_var_0, php::toBool(tmp_var_3));
     tmp_var_0.unset();
     tmp_var_6 = (php_nativeplaywright__framelocator__inside(this_, tmp_var_5));
     tmp_var_5.unset();
@@ -190,7 +190,7 @@ php::Object php_nativeplaywright__framelocator__getbytestid(php::Object &this_, 
     php::Object tmp_var_0;
     php::Var tmp_var_1;
     php::Object tmp_var_2;
-    Z_PTR_P(tmp_var_0.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(310));
+    Z_PTR_P(tmp_var_0.ptr()) = get_persistent_class(PersistentClassId{11}, get_str(311));
 
     tmp_var_1 = php_nativeplaywright__locator__bytestid(tmp_var_0, testId);
     tmp_var_2 = (php_nativeplaywright__framelocator__inside(this_, tmp_var_1));
@@ -204,10 +204,10 @@ php::Object php_nativeplaywright__framelocator__framelocator(php::Object &this_,
     php::Var tmp_var_3;
     php::Var tmp_var_4;
     php::Object tmp_var_5;
-    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{10}, get_str(307));
+    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{10}, get_str(308));
 
-    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(308), get_str(307)), php::AttrMode::Get);
-    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(309), get_str(307)), php::AttrMode::Get);
+    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(309), get_str(308)), php::AttrMode::Get);
+    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(310), get_str(308)), php::AttrMode::Get);
     tmp_var_3 = get_str(21);
     tmp_var_4 = php::concat({tmp_var_2, tmp_var_3, selector});
     tmp_var_2.unset();
@@ -223,11 +223,11 @@ php::Object php_nativeplaywright__framelocator__first(php::Object &this_) {
     php::Var tmp_var_2;
     php::Var tmp_var_3;
     php::Object tmp_var_4;
-    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{10}, get_str(307));
+    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{10}, get_str(308));
 
-    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(308), get_str(307)), php::AttrMode::Get);
-    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(309), get_str(307)), php::AttrMode::Get);
-    tmp_var_3 = php::concat({tmp_var_2, get_str(322)});
+    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(309), get_str(308)), php::AttrMode::Get);
+    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(310), get_str(308)), php::AttrMode::Get);
+    tmp_var_3 = php::concat({tmp_var_2, get_str(323)});
     tmp_var_2.unset();
     tmp_var_4 = (php::newObject(tmp_var_0, php::VarList{php::deindirect(tmp_var_1), tmp_var_3}));
     tmp_var_1.unset();
@@ -240,11 +240,11 @@ php::Object php_nativeplaywright__framelocator__last(php::Object &this_) {
     php::Var tmp_var_2;
     php::Var tmp_var_3;
     php::Object tmp_var_4;
-    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{10}, get_str(307));
+    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{10}, get_str(308));
 
-    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(308), get_str(307)), php::AttrMode::Get);
-    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(309), get_str(307)), php::AttrMode::Get);
-    tmp_var_3 = php::concat({tmp_var_2, get_str(323)});
+    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(309), get_str(308)), php::AttrMode::Get);
+    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(310), get_str(308)), php::AttrMode::Get);
+    tmp_var_3 = php::concat({tmp_var_2, get_str(324)});
     tmp_var_2.unset();
     tmp_var_4 = (php::newObject(tmp_var_0, php::VarList{php::deindirect(tmp_var_1), tmp_var_3}));
     tmp_var_1.unset();
@@ -257,11 +257,11 @@ php::Object php_nativeplaywright__framelocator__nth(php::Object &this_, php::Int
     php::Var tmp_var_2;
     php::Var tmp_var_3;
     php::Object tmp_var_4;
-    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{10}, get_str(307));
+    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{10}, get_str(308));
 
-    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(308), get_str(307)), php::AttrMode::Get);
-    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(309), get_str(307)), php::AttrMode::Get);
-    tmp_var_3 = php::concat({tmp_var_2, get_str(324), index});
+    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(309), get_str(308)), php::AttrMode::Get);
+    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(310), get_str(308)), php::AttrMode::Get);
+    tmp_var_3 = php::concat({tmp_var_2, get_str(325), index});
     tmp_var_2.unset();
     tmp_var_4 = (php::newObject(tmp_var_0, php::VarList{php::deindirect(tmp_var_1), tmp_var_3}));
     tmp_var_1.unset();
@@ -273,10 +273,10 @@ php::Object php_nativeplaywright__framelocator__owner(php::Object &this_) {
     php::Var tmp_var_1;
     php::Var tmp_var_2;
     php::Object tmp_var_3;
-    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{11}, get_str(310));
+    zend_class_entry *tmp_var_0 = get_persistent_class(PersistentClassId{11}, get_str(311));
 
-    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(308), get_str(307)), php::AttrMode::Get);
-    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(309), get_str(307)), php::AttrMode::Get);
+    tmp_var_1 = this_.attr(get_persistent_prop(PersistentPropertyId{18}, get_str(309), get_str(308)), php::AttrMode::Get);
+    tmp_var_2 = this_.attr(get_persistent_prop(PersistentPropertyId{19}, get_str(310), get_str(308)), php::AttrMode::Get);
     tmp_var_3 = (php::newObject(tmp_var_0, php::VarList{php::deindirect(tmp_var_1), php::deindirect(tmp_var_2)}));
     tmp_var_1.unset();
     tmp_var_2.unset();
@@ -288,10 +288,10 @@ ZEND_METHOD(NativePlaywright_FrameLocator, __construct) {
     php::Object this_(&execute_data->This);
     PHPX_TRY {
         php::checkCallArgCount(2, 2, false);
-        php::Object arg_frame = php::toObject(php::getCallArg(0), get_persistent_class(PersistentClassId{12}, get_str(325)));
+        php::Object arg_frame = php::toObject(php::getCallArg(0), get_persistent_class(PersistentClassId{12}, get_str(326)));
         php::Var raw_arg_frameSelector = php::getCallArg(1);
         if (UNEXPECTED(!(raw_arg_frameSelector.isString()))) {
-            php::throwArgumentTypeError(raw_arg_frameSelector, get_str(326), 2, get_str(309), get_str(98));
+            php::throwArgumentTypeError(raw_arg_frameSelector, get_str(327), 2, get_str(310), get_str(98));
         }
         php::Str arg_frameSelector = php::toString(raw_arg_frameSelector);
         php_nativeplaywright__framelocator____construct(this_, php::takeValue(arg_frame),php::takeValue(arg_frameSelector));
@@ -306,7 +306,7 @@ ZEND_METHOD(NativePlaywright_FrameLocator, inside) {
         php::checkCallArgCount(1, 1, false);
         php::Var raw_arg_sel = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_sel.isString()))) {
-            php::throwArgumentTypeError(raw_arg_sel, get_str(313), 1, get_str(314), get_str(98));
+            php::throwArgumentTypeError(raw_arg_sel, get_str(314), 1, get_str(315), get_str(98));
         }
         php::Str arg_sel = php::toString(raw_arg_sel);
         auto retval = php_nativeplaywright__framelocator__inside(this_, php::takeValue(arg_sel));
@@ -337,7 +337,7 @@ ZEND_METHOD(NativePlaywright_FrameLocator, getByText) {
         php::checkCallArgCount(1, 2, false);
         php::Var raw_arg_text = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_text.isString()))) {
-            php::throwArgumentTypeError(raw_arg_text, get_str(327), 1, get_str(328), get_str(98));
+            php::throwArgumentTypeError(raw_arg_text, get_str(328), 1, get_str(329), get_str(98));
         }
         php::Str arg_text = php::toString(raw_arg_text);
         php::Array arg_options = php::toArray(php::getCallArg(1, php_nativeplaywright__framelocator__getbytext_arg_1_default_value()));
@@ -355,7 +355,7 @@ ZEND_METHOD(NativePlaywright_FrameLocator, getByRole) {
         php::checkCallArgCount(1, 2, false);
         php::Var raw_arg_role = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_role.isString()))) {
-            php::throwArgumentTypeError(raw_arg_role, get_str(329), 1, get_str(330), get_str(98));
+            php::throwArgumentTypeError(raw_arg_role, get_str(330), 1, get_str(331), get_str(98));
         }
         php::Str arg_role = php::toString(raw_arg_role);
         php::Array arg_options = php::toArray(php::getCallArg(1, php_nativeplaywright__framelocator__getbyrole_arg_1_default_value()));
@@ -373,7 +373,7 @@ ZEND_METHOD(NativePlaywright_FrameLocator, getByLabel) {
         php::checkCallArgCount(1, 2, false);
         php::Var raw_arg_text = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_text.isString()))) {
-            php::throwArgumentTypeError(raw_arg_text, get_str(331), 1, get_str(328), get_str(98));
+            php::throwArgumentTypeError(raw_arg_text, get_str(332), 1, get_str(329), get_str(98));
         }
         php::Str arg_text = php::toString(raw_arg_text);
         php::Array arg_options = php::toArray(php::getCallArg(1, php_nativeplaywright__framelocator__getbylabel_arg_1_default_value()));
@@ -391,7 +391,7 @@ ZEND_METHOD(NativePlaywright_FrameLocator, getByPlaceholder) {
         php::checkCallArgCount(1, 2, false);
         php::Var raw_arg_text = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_text.isString()))) {
-            php::throwArgumentTypeError(raw_arg_text, get_str(332), 1, get_str(328), get_str(98));
+            php::throwArgumentTypeError(raw_arg_text, get_str(333), 1, get_str(329), get_str(98));
         }
         php::Str arg_text = php::toString(raw_arg_text);
         php::Array arg_options = php::toArray(php::getCallArg(1, php_nativeplaywright__framelocator__getbyplaceholder_arg_1_default_value()));
@@ -409,7 +409,7 @@ ZEND_METHOD(NativePlaywright_FrameLocator, getByAltText) {
         php::checkCallArgCount(1, 2, false);
         php::Var raw_arg_text = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_text.isString()))) {
-            php::throwArgumentTypeError(raw_arg_text, get_str(333), 1, get_str(328), get_str(98));
+            php::throwArgumentTypeError(raw_arg_text, get_str(334), 1, get_str(329), get_str(98));
         }
         php::Str arg_text = php::toString(raw_arg_text);
         php::Array arg_options = php::toArray(php::getCallArg(1, php_nativeplaywright__framelocator__getbyalttext_arg_1_default_value()));
@@ -427,7 +427,7 @@ ZEND_METHOD(NativePlaywright_FrameLocator, getByTitle) {
         php::checkCallArgCount(1, 2, false);
         php::Var raw_arg_text = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_text.isString()))) {
-            php::throwArgumentTypeError(raw_arg_text, get_str(334), 1, get_str(328), get_str(98));
+            php::throwArgumentTypeError(raw_arg_text, get_str(335), 1, get_str(329), get_str(98));
         }
         php::Str arg_text = php::toString(raw_arg_text);
         php::Array arg_options = php::toArray(php::getCallArg(1, php_nativeplaywright__framelocator__getbytitle_arg_1_default_value()));
@@ -445,7 +445,7 @@ ZEND_METHOD(NativePlaywright_FrameLocator, getByTestId) {
         php::checkCallArgCount(1, 1, false);
         php::Var raw_arg_testId = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_testId.isString()))) {
-            php::throwArgumentTypeError(raw_arg_testId, get_str(335), 1, get_str(336), get_str(98));
+            php::throwArgumentTypeError(raw_arg_testId, get_str(336), 1, get_str(337), get_str(98));
         }
         php::Str arg_testId = php::toString(raw_arg_testId);
         auto retval = php_nativeplaywright__framelocator__getbytestid(this_, php::takeValue(arg_testId));
@@ -462,7 +462,7 @@ ZEND_METHOD(NativePlaywright_FrameLocator, frameLocator) {
         php::checkCallArgCount(1, 1, false);
         php::Var raw_arg_selector = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_selector.isString()))) {
-            php::throwArgumentTypeError(raw_arg_selector, get_str(337), 1, get_str(311), get_str(98));
+            php::throwArgumentTypeError(raw_arg_selector, get_str(338), 1, get_str(312), get_str(98));
         }
         php::Str arg_selector = php::toString(raw_arg_selector);
         auto retval = php_nativeplaywright__framelocator__framelocator(this_, php::takeValue(arg_selector));
@@ -503,7 +503,7 @@ ZEND_METHOD(NativePlaywright_FrameLocator, nth) {
         php::checkCallArgCount(1, 1, false);
         php::Var raw_arg_index = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_index.isInt()))) {
-            php::throwArgumentTypeError(raw_arg_index, get_str(338), 1, get_str(339), get_str(89));
+            php::throwArgumentTypeError(raw_arg_index, get_str(339), 1, get_str(340), get_str(89));
         }
         php::Int arg_index = php::toInt(raw_arg_index);
         auto retval = php_nativeplaywright__framelocator__nth(this_, arg_index);

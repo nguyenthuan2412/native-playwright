@@ -18,6 +18,11 @@ final class Waiter
         }
         $this->done = true;
         $this->value = $value;
+        $this->wake();
+    }
+
+    private function wake(): void
+    {
         if ($this->channel !== null) {
             $this->channel->push(true);
         }
@@ -30,8 +35,6 @@ final class Waiter
         }
         $this->done = true;
         $this->error = $e;
-        if ($this->channel !== null) {
-            $this->channel->push(true);
-        }
+        $this->wake();
     }
 }

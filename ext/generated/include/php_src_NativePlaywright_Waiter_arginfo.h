@@ -1,8 +1,11 @@
 /* This is a generated file, edit the .stub.php file instead.
- * Stub hash: 788c39b67e4ebe43823005ccb991c8d3da71c1cf */
+ * Stub hash: e7ed5a7ccba56584191e3dfe8aeb0f0a0c3ad2c7 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_NativePlaywright_Waiter_resolve, 0, 1, IS_VOID, 0)
 	ZEND_ARG_TYPE_INFO(0, value, IS_MIXED, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_NativePlaywright_Waiter_wake, 0, 0, IS_VOID, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_NativePlaywright_Waiter_reject, 0, 1, IS_VOID, 0)
@@ -10,10 +13,12 @@ ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_NativePlaywright_Waiter_re
 ZEND_END_ARG_INFO()
 
 ZEND_METHOD(NativePlaywright_Waiter, resolve);
+ZEND_METHOD(NativePlaywright_Waiter, wake);
 ZEND_METHOD(NativePlaywright_Waiter, reject);
 
 static const zend_function_entry class_NativePlaywright_Waiter_methods[] = {
 	ZEND_ME(NativePlaywright_Waiter, resolve, arginfo_class_NativePlaywright_Waiter_resolve, ZEND_ACC_STRICT_TYPES|ZEND_ACC_PUBLIC)
+	ZEND_ME(NativePlaywright_Waiter, wake, arginfo_class_NativePlaywright_Waiter_wake, ZEND_ACC_STRICT_TYPES|ZEND_ACC_PRIVATE)
 	ZEND_ME(NativePlaywright_Waiter, reject, arginfo_class_NativePlaywright_Waiter_reject, ZEND_ACC_STRICT_TYPES|ZEND_ACC_PUBLIC)
 	ZEND_FE_END
 };

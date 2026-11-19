@@ -1,5 +1,5 @@
 /* This is a generated file, edit the .stub.php file instead.
- * Stub hash: 002ced37ab02f39ab0c1f806184f72873597204c */
+ * Stub hash: 65a3e59f91e98e9af2ea01bfce24f18f6f28122a */
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_class_NativePlaywright_Transport___construct, 0, 0, 1)
 	ZEND_ARG_OBJ_INFO(0, conn, NativePlaywright\\Connection, 0)

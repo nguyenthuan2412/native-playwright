@@ -13,7 +13,7 @@ final class SwooleTransport extends Transport
 {
     private const EVENT_READ = 512;   // SWOOLE_EVENT_READ
 
-    private Channel $done;
+    private ?Channel $done = null;
     private bool $closing = false;
 
     public function __construct(Connection $conn)
@@ -39,7 +39,7 @@ final class SwooleTransport extends Transport
             }
         }
         $this->handleClosed();
-        $this->done->push(true);
+        $this->done?->push(true);
     }
 
     public function newWaiter(): Waiter
@@ -93,9 +93,10 @@ final class SwooleTransport extends Transport
             } catch (Exception $e) {
             }
             // Let the reader see EOF first: never close an fd the reactor still watches.
-            $this->done->pop(5.0);
+            $this->done?->pop(5.0);
         }
         $this->conn->close(false);
         $this->handleClosed();
+        $this->done = null;
     }
 }

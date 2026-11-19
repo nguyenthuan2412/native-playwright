@@ -25,21 +25,21 @@ php::Bool php_nativeplaywright__util__urlmatches(php::Object &this_, php::Var pa
     php::Var tmp_var_9;
     php::Var tmp_var_10;
     php::Bool tmp_var_11 = 0;
-    if (UNEXPECTED(!(pattern.isString() || (pattern.isObject() && php::instanceOf(pattern, get_persistent_class(PersistentClassId{5}, get_str(147))))))) {
-        php::throwArgumentTypeError(pattern, get_str(205), 1, get_str(206), get_str(207));
+    if (UNEXPECTED(!(pattern.isString() || (pattern.isObject() && php::instanceOf(pattern, get_persistent_class(PersistentClassId{5}, get_str(148))))))) {
+        php::throwArgumentTypeError(pattern, get_str(206), 1, get_str(207), get_str(208));
     }
 
-    if (php::toBool(php::instanceOf(pattern, get_persistent_class(PersistentClassId{5}, get_str(147))))) {
+    if (php::toBool(php::instanceOf(pattern, get_persistent_class(PersistentClassId{5}, get_str(148))))) {
         tmp_var_0 = (php::toBool(typephp_call_cached(pattern, get_function_call_cache(FunctionCallCacheId{8}), php::VarList{url})));
         return tmp_var_0;
     }
-    if (php::toBool((php::toBool((php::toBool(php::same(pattern, php::empty_string)) || php::toBool(php::same(pattern, get_str(189))))) || php::toBool(php::same(pattern, get_str(190)))))) {
+    if (php::toBool((php::toBool((php::toBool(php::same(pattern, php::empty_string)) || php::toBool(php::same(pattern, get_str(190))))) || php::toBool(php::same(pattern, get_str(191)))))) {
         tmp_var_1 = (php::toBool(true));
         return tmp_var_1;
     }
-    if (php::toBool(php_nativeplaywright__util__isregex(this_, php::toStringArgExact(pattern, get_str(191), 1, get_str(192))))) {
-        if (get_function_resolution_cache(FunctionResolutionCacheId{19}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{19}) = php::fn::function_exists(get_str(193)) ? 1 : 2; }
-        tmp_var_2 = get_function_resolution_cache(FunctionResolutionCacheId{19}) == 1 ? get_func(RequestFuncId{10}, get_str(193)) : get_persistent_func(PersistentFuncId{11}, get_str(194));
+    if (php::toBool(php_nativeplaywright__util__isregex(this_, php::toStringArgExact(pattern, get_str(192), 1, get_str(193))))) {
+        if (get_function_resolution_cache(FunctionResolutionCacheId{19}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{19}) = php::fn::function_exists(get_str(194)) ? 1 : 2; }
+        tmp_var_2 = get_function_resolution_cache(FunctionResolutionCacheId{19}) == 1 ? get_func(RequestFuncId{10}, get_str(194)) : get_persistent_func(PersistentFuncId{13}, get_str(195));
         tmp_var_3 = php::call(tmp_var_2, php::VarList{pattern, url});
         tmp_var_4 = (php::toBool(php::same(tmp_var_3, 1L)));
         tmp_var_3.unset();
@@ -47,25 +47,25 @@ php::Bool php_nativeplaywright__util__urlmatches(php::Object &this_, php::Var pa
     }
     tmp_var_6 = php::toBool([&]() -> bool {
         if (php::toBool(!(php::same(baseURL, php::empty_string)))) {
-            if (get_function_resolution_cache(FunctionResolutionCacheId{20}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{20}) = php::fn::function_exists(get_str(195)) ? 1 : 2; }
-            tmp_var_5 = get_function_resolution_cache(FunctionResolutionCacheId{20}) == 1 ? get_func(RequestFuncId{11}, get_str(195)) : get_persistent_func(PersistentFuncId{12}, get_str(196));
-            return php::toBool(!(php::toBool(php::call(tmp_var_5, php::VarList{pattern, get_str(197)}))));
+            if (get_function_resolution_cache(FunctionResolutionCacheId{20}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{20}) = php::fn::function_exists(get_str(196)) ? 1 : 2; }
+            tmp_var_5 = get_function_resolution_cache(FunctionResolutionCacheId{20}) == 1 ? get_func(RequestFuncId{11}, get_str(196)) : get_persistent_func(PersistentFuncId{14}, get_str(197));
+            return php::toBool(!(php::toBool(php::call(tmp_var_5, php::VarList{pattern, get_str(198)}))));
         }
         return false;
     }());
     if (php::toBool([&]() -> bool {
         if (php::toBool(tmp_var_6)) {
-            if (get_function_resolution_cache(FunctionResolutionCacheId{21}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{21}) = php::fn::function_exists(get_str(198)) ? 1 : 2; }
-            tmp_var_7 = get_function_resolution_cache(FunctionResolutionCacheId{21}) == 1 ? get_func(RequestFuncId{12}, get_str(198)) : get_persistent_func(PersistentFuncId{13}, get_str(199));
-            return php::toBool(!(php::toBool(php::call(tmp_var_7, php::VarList{pattern, get_str(200)}))));
+            if (get_function_resolution_cache(FunctionResolutionCacheId{21}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{21}) = php::fn::function_exists(get_str(199)) ? 1 : 2; }
+            tmp_var_7 = get_function_resolution_cache(FunctionResolutionCacheId{21}) == 1 ? get_func(RequestFuncId{12}, get_str(199)) : get_persistent_func(PersistentFuncId{15}, get_str(200));
+            return php::toBool(!(php::toBool(php::call(tmp_var_7, php::VarList{pattern, get_str(201)}))));
         }
         return false;
     }())) {
-        pattern = php_nativeplaywright__util__resolveurl(this_, baseURL, php::toStringArgExact(pattern, get_str(201), 2, get_str(202)));
+        pattern = php_nativeplaywright__util__resolveurl(this_, baseURL, php::toStringArgExact(pattern, get_str(202), 2, get_str(203)));
     }
-    if (get_function_resolution_cache(FunctionResolutionCacheId{22}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{22}) = php::fn::function_exists(get_str(193)) ? 1 : 2; }
-    tmp_var_8 = get_function_resolution_cache(FunctionResolutionCacheId{22}) == 1 ? get_func(RequestFuncId{10}, get_str(193)) : get_persistent_func(PersistentFuncId{11}, get_str(194));
-    tmp_var_9 = php_nativeplaywright__util__globtoregex(this_, php::toStringArgExact(pattern, get_str(203), 1, get_str(204)));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{22}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{22}) = php::fn::function_exists(get_str(194)) ? 1 : 2; }
+    tmp_var_8 = get_function_resolution_cache(FunctionResolutionCacheId{22}) == 1 ? get_func(RequestFuncId{10}, get_str(194)) : get_persistent_func(PersistentFuncId{13}, get_str(195));
+    tmp_var_9 = php_nativeplaywright__util__globtoregex(this_, php::toStringArgExact(pattern, get_str(204), 1, get_str(205)));
     tmp_var_10 = php::call(tmp_var_8, php::VarList{tmp_var_9, url});
     tmp_var_9.unset();
     tmp_var_11 = (php::toBool(php::same(tmp_var_10, 1L)));
@@ -93,8 +93,8 @@ php::Bool php_nativeplaywright__util__isregex(php::Object &this_, php::Str s) {
     php::Bool tmp_var_14 = 0;
     php::Bool tmp_var_15 = 0;
 
-    if (get_function_resolution_cache(FunctionResolutionCacheId{23}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{23}) = php::fn::function_exists(get_str(208)) ? 1 : 2; }
-    tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{23}) == 1 ? get_func(RequestFuncId{13}, get_str(208)) : get_persistent_func(PersistentFuncId{14}, get_str(209));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{23}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{23}) = php::fn::function_exists(get_str(209)) ? 1 : 2; }
+    tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{23}) == 1 ? get_func(RequestFuncId{13}, get_str(209)) : get_persistent_func(PersistentFuncId{16}, get_str(210));
     tmp_var_1 = php::call(tmp_var_0, php::VarList{s});
     tmp_var_2 = php::toBool(((php::Var(tmp_var_1)) < (php::Var(3L))));
     tmp_var_1.unset();
@@ -103,33 +103,33 @@ php::Bool php_nativeplaywright__util__isregex(php::Object &this_, php::Str s) {
         return tmp_var_3;
     }
     d = s.offsetGet(0L);
-    if (php::toBool((php::toBool((php::toBool(!(php::same(d, get_str(210)))) && php::toBool(!(php::same(d, get_str(211)))))) && php::toBool(!(php::same(d, get_str(212))))))) {
+    if (php::toBool((php::toBool((php::toBool(!(php::same(d, get_str(211)))) && php::toBool(!(php::same(d, get_str(212)))))) && php::toBool(!(php::same(d, get_str(213))))))) {
         tmp_var_4 = (php::toBool(false));
         return tmp_var_4;
     }
-    if (get_function_resolution_cache(FunctionResolutionCacheId{24}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{24}) = php::fn::function_exists(get_str(213)) ? 1 : 2; }
-    tmp_var_5 = get_function_resolution_cache(FunctionResolutionCacheId{24}) == 1 ? get_func(RequestFuncId{14}, get_str(213)) : get_persistent_func(PersistentFuncId{15}, get_str(214));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{24}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{24}) = php::fn::function_exists(get_str(214)) ? 1 : 2; }
+    tmp_var_5 = get_function_resolution_cache(FunctionResolutionCacheId{24}) == 1 ? get_func(RequestFuncId{14}, get_str(214)) : get_persistent_func(PersistentFuncId{17}, get_str(215));
     end = php::call(tmp_var_5, php::VarList{s, d});
     if (php::toBool((php::toBool(php::same(end, php::false_)) || php::toBool(php::same(end, 0L))))) {
         tmp_var_6 = (php::toBool(false));
         return tmp_var_6;
     }
-    if (get_function_resolution_cache(FunctionResolutionCacheId{25}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{25}) = php::fn::function_exists(get_str(215)) ? 1 : 2; }
-    tmp_var_7 = get_function_resolution_cache(FunctionResolutionCacheId{25}) == 1 ? get_func(RequestFuncId{15}, get_str(215)) : get_persistent_func(PersistentFuncId{16}, get_str(216));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{25}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{25}) = php::fn::function_exists(get_str(216)) ? 1 : 2; }
+    tmp_var_7 = get_function_resolution_cache(FunctionResolutionCacheId{25}) == 1 ? get_func(RequestFuncId{15}, get_str(216)) : get_persistent_func(PersistentFuncId{18}, get_str(217));
     flags = php::call(tmp_var_7, php::VarList{s, ((php::Var(end)) + (php::Var(1L)))});
-    if (get_function_resolution_cache(FunctionResolutionCacheId{26}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{26}) = php::fn::function_exists(get_str(193)) ? 1 : 2; }
-    tmp_var_8 = get_function_resolution_cache(FunctionResolutionCacheId{26}) == 1 ? get_func(RequestFuncId{10}, get_str(193)) : get_persistent_func(PersistentFuncId{11}, get_str(194));
-    tmp_var_9 = php::call(tmp_var_8, php::VarList{get_str(217), flags});
+    if (get_function_resolution_cache(FunctionResolutionCacheId{26}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{26}) = php::fn::function_exists(get_str(194)) ? 1 : 2; }
+    tmp_var_8 = get_function_resolution_cache(FunctionResolutionCacheId{26}) == 1 ? get_func(RequestFuncId{10}, get_str(194)) : get_persistent_func(PersistentFuncId{13}, get_str(195));
+    tmp_var_9 = php::call(tmp_var_8, php::VarList{get_str(218), flags});
     tmp_var_10 = php::toBool(php::same(tmp_var_9, 1L));
     tmp_var_9.unset();
     tmp_var_15 = (php::toBool([&]() -> bool {
         if (php::toBool(tmp_var_10)) {
             auto tmp_var_11 = EG(error_reporting);
-            php::call(get_persistent_func(PersistentFuncId{17}, get_str(218)), {E_FATAL_ERRORS});
-            if (get_function_resolution_cache(FunctionResolutionCacheId{27}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{27}) = php::fn::function_exists(get_str(193)) ? 1 : 2; }
-            tmp_var_12 = get_function_resolution_cache(FunctionResolutionCacheId{27}) == 1 ? get_func(RequestFuncId{10}, get_str(193)) : get_persistent_func(PersistentFuncId{11}, get_str(194));
+            php::call(get_persistent_func(PersistentFuncId{19}, get_str(219)), {E_FATAL_ERRORS});
+            if (get_function_resolution_cache(FunctionResolutionCacheId{27}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{27}) = php::fn::function_exists(get_str(194)) ? 1 : 2; }
+            tmp_var_12 = get_function_resolution_cache(FunctionResolutionCacheId{27}) == 1 ? get_func(RequestFuncId{10}, get_str(194)) : get_persistent_func(PersistentFuncId{13}, get_str(195));
             tmp_var_13 = php::call(tmp_var_12, php::VarList{s, php::empty_string});
-            php::call(get_persistent_func(PersistentFuncId{17}, get_str(218)), {tmp_var_11});
+            php::call(get_persistent_func(PersistentFuncId{19}, get_str(219)), {tmp_var_11});
             tmp_var_14 = php::toBool(!(php::same(tmp_var_13, php::false_)));
             tmp_var_13.unset();
             return php::toBool(tmp_var_14);
@@ -155,25 +155,25 @@ php::Str php_nativeplaywright__util__globtoregex(php::Object &this_, php::Str gl
     zend_function * tmp_var_7;
     php::Str tmp_var_8;
 
-    if (get_function_resolution_cache(FunctionResolutionCacheId{28}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{28}) = php::fn::function_exists(get_str(208)) ? 1 : 2; }
-    tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{28}) == 1 ? get_func(RequestFuncId{13}, get_str(208)) : get_persistent_func(PersistentFuncId{14}, get_str(209));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{28}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{28}) = php::fn::function_exists(get_str(209)) ? 1 : 2; }
+    tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{28}) == 1 ? get_func(RequestFuncId{13}, get_str(209)) : get_persistent_func(PersistentFuncId{16}, get_str(210));
     n = php::call(tmp_var_0, php::VarList{glob});
     i = php::toInt(0L);
     
     for (;php::toBool(((php::Var(i)) < (php::Var(n)))); ++i) {
         c = glob.offsetGet(i);
-        if (php::toBool((php::toBool(php::same(c, get_str(219))) && php::toBool(((php::Var(((i) + (1L)))) < (php::Var(n))))))) {
-            if (get_function_resolution_cache(FunctionResolutionCacheId{29}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{29}) = php::fn::function_exists(get_str(220)) ? 1 : 2; }
-            tmp_var_1 = get_function_resolution_cache(FunctionResolutionCacheId{29}) == 1 ? get_func(RequestFuncId{16}, get_str(220)) : get_persistent_func(PersistentFuncId{18}, get_str(221));
+        if (php::toBool((php::toBool(php::same(c, get_str(220))) && php::toBool(((php::Var(((i) + (1L)))) < (php::Var(n))))))) {
+            if (get_function_resolution_cache(FunctionResolutionCacheId{29}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{29}) = php::fn::function_exists(get_str(221)) ? 1 : 2; }
+            tmp_var_1 = get_function_resolution_cache(FunctionResolutionCacheId{29}) == 1 ? get_func(RequestFuncId{16}, get_str(221)) : get_persistent_func(PersistentFuncId{20}, get_str(222));
             tmp_var_2 = glob.offsetGet(php::toInt(++i));
-            (re.append(php::call(tmp_var_1, php::VarList{php::deindirect(tmp_var_2), get_str(211)})), re);
+            (re.append(php::call(tmp_var_1, php::VarList{php::deindirect(tmp_var_2), get_str(212)})), re);
             tmp_var_2.unset();
         } else {
-            if (php::toBool(php::same(c, get_str(200)))) {
+            if (php::toBool(php::same(c, get_str(201)))) {
                 if (php::toBool([&]() -> bool {
                     if (php::toBool(((php::Var(((i) + (1L)))) < (php::Var(n))))) {
                         tmp_var_3 = glob.offsetGet(((i) + (1L)));
-                        tmp_var_4 = php::toBool(php::same(tmp_var_3, get_str(200)));
+                        tmp_var_4 = php::toBool(php::same(tmp_var_3, get_str(201)));
                         tmp_var_3.unset();
                         return php::toBool(tmp_var_4);
                     }
@@ -183,38 +183,38 @@ php::Str php_nativeplaywright__util__globtoregex(php::Object &this_, php::Str gl
                     if (php::toBool([&]() -> bool {
                         if (php::toBool(((php::Var(((i) + (1L)))) < (php::Var(n))))) {
                             tmp_var_5 = glob.offsetGet(((i) + (1L)));
-                            tmp_var_6 = php::toBool(php::same(tmp_var_5, get_str(210)));
+                            tmp_var_6 = php::toBool(php::same(tmp_var_5, get_str(211)));
                             tmp_var_5.unset();
                             return php::toBool(tmp_var_6);
                         }
                         return false;
                     }())) {
                         i++;
-                        (re.append(get_str(222)), re);
-                    } else {
                         (re.append(get_str(223)), re);
+                    } else {
+                        (re.append(get_str(224)), re);
                     }
                 } else {
-                    (re.append(get_str(224)), re);
+                    (re.append(get_str(225)), re);
                 }
             } else {
-                if (php::toBool(php::same(c, get_str(225)))) {
-                    (re.append(get_str(226)), re);
+                if (php::toBool(php::same(c, get_str(226)))) {
+                    (re.append(get_str(227)), re);
                 } else {
-                    if (php::toBool(php::same(c, get_str(227)))) {
+                    if (php::toBool(php::same(c, get_str(228)))) {
                         inGroup = php::toBool(true);
-                        (re.append(get_str(228)), re);
+                        (re.append(get_str(229)), re);
                     } else {
                         if (php::toBool((php::toBool(php::same(c, get_str(87))) && php::toBool(inGroup)))) {
                             inGroup = php::toBool(false);
-                            (re.append(get_str(229)), re);
+                            (re.append(get_str(230)), re);
                         } else {
-                            if (php::toBool((php::toBool(php::same(c, get_str(230))) && php::toBool(inGroup)))) {
-                                (re.append(get_str(231)), re);
+                            if (php::toBool((php::toBool(php::same(c, get_str(231))) && php::toBool(inGroup)))) {
+                                (re.append(get_str(232)), re);
                             } else {
-                                if (get_function_resolution_cache(FunctionResolutionCacheId{30}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{30}) = php::fn::function_exists(get_str(220)) ? 1 : 2; }
-                                tmp_var_7 = get_function_resolution_cache(FunctionResolutionCacheId{30}) == 1 ? get_func(RequestFuncId{16}, get_str(220)) : get_persistent_func(PersistentFuncId{18}, get_str(221));
-                                (re.append(php::call(tmp_var_7, php::VarList{c, get_str(211)})), re);
+                                if (get_function_resolution_cache(FunctionResolutionCacheId{30}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{30}) = php::fn::function_exists(get_str(221)) ? 1 : 2; }
+                                tmp_var_7 = get_function_resolution_cache(FunctionResolutionCacheId{30}) == 1 ? get_func(RequestFuncId{16}, get_str(221)) : get_persistent_func(PersistentFuncId{20}, get_str(222));
+                                (re.append(php::call(tmp_var_7, php::VarList{c, get_str(212)})), re);
                             }
                         }
                     }
@@ -222,7 +222,7 @@ php::Str php_nativeplaywright__util__globtoregex(php::Object &this_, php::Str gl
             }
         }
     }
-    tmp_var_8 = (php::concat({get_str(232), re, get_str(233)}));
+    tmp_var_8 = (php::concat({get_str(233), re, get_str(234)}));
     return tmp_var_8;
 }
 
@@ -256,65 +256,65 @@ php::Str php_nativeplaywright__util__resolveurl(php::Object &this_, php::Str bas
 
     if (php::toBool([&]() -> bool {
         if (!(php::toBool(php::same(base, php::empty_string)))) {
-            if (get_function_resolution_cache(FunctionResolutionCacheId{31}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{31}) = php::fn::function_exists(get_str(193)) ? 1 : 2; }
-            tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{31}) == 1 ? get_func(RequestFuncId{10}, get_str(193)) : get_persistent_func(PersistentFuncId{11}, get_str(194));
-            return php::toBool(php::call(tmp_var_0, php::VarList{get_str(234), url}));
+            if (get_function_resolution_cache(FunctionResolutionCacheId{31}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{31}) = php::fn::function_exists(get_str(194)) ? 1 : 2; }
+            tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{31}) == 1 ? get_func(RequestFuncId{10}, get_str(194)) : get_persistent_func(PersistentFuncId{13}, get_str(195));
+            return php::toBool(php::call(tmp_var_0, php::VarList{get_str(235), url}));
         }
         return true;
     }())) {
         return url;
     }
-    if (get_function_resolution_cache(FunctionResolutionCacheId{32}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{32}) = php::fn::function_exists(get_str(235)) ? 1 : 2; }
-    tmp_var_1 = get_function_resolution_cache(FunctionResolutionCacheId{32}) == 1 ? get_func(RequestFuncId{17}, get_str(235)) : get_persistent_func(PersistentFuncId{19}, get_str(236));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{32}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{32}) = php::fn::function_exists(get_str(236)) ? 1 : 2; }
+    tmp_var_1 = get_function_resolution_cache(FunctionResolutionCacheId{32}) == 1 ? get_func(RequestFuncId{17}, get_str(236)) : get_persistent_func(PersistentFuncId{21}, get_str(237));
     p = php::call(tmp_var_1, php::VarList{base});
     if (get_function_resolution_cache(FunctionResolutionCacheId{33}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{33}) = php::fn::function_exists(get_str(94)) ? 1 : 2; }
     tmp_var_2 = get_function_resolution_cache(FunctionResolutionCacheId{33}) == 1 ? get_func(RequestFuncId{3}, get_str(94)) : get_persistent_func(PersistentFuncId{3}, get_str(95));
     tmp_var_3 = php::toBool(!(php::toBool(php::call(tmp_var_2, php::VarList{p}))));
-    if (php::toBool((php::toBool(tmp_var_3) || php::toBool(!(php::toBool((php::exists(p, {{php::ArrayDimFetch, php::Var(get_str(237))}}) && php::exists(p, {{php::ArrayDimFetch, php::Var(get_str(238))}})))))))) {
+    if (php::toBool((php::toBool(tmp_var_3) || php::toBool(!(php::toBool((php::exists(p, {{php::ArrayDimFetch, php::Var(get_str(238))}}) && php::exists(p, {{php::ArrayDimFetch, php::Var(get_str(239))}})))))))) {
         return url;
     }
-    tmp_var_4 = p.item(get_str(237), false);
-    tmp_var_5 = p.item(get_str(238), false);
+    tmp_var_4 = p.item(get_str(238), false);
+    tmp_var_5 = p.item(get_str(239), false);
     tmp_var_8 = [&]() -> php::Str {
-        if (php::toBool(php::exists(p, {{php::ArrayDimFetch, php::Var(get_str(239))}}))) {
-            tmp_var_6 = p.item(get_str(239), false);
-            tmp_var_7 = php::concat({get_str(240), php::toString(tmp_var_6)});
+        if (php::toBool(php::exists(p, {{php::ArrayDimFetch, php::Var(get_str(240))}}))) {
+            tmp_var_6 = p.item(get_str(240), false);
+            tmp_var_7 = php::concat({get_str(241), php::toString(tmp_var_6)});
             tmp_var_6.unset();
             return tmp_var_7;
         } else {
             return php::empty_string;
         }
     }();
-    origin = php::concat({php::toString(tmp_var_4), get_str(197), php::toString(tmp_var_5), tmp_var_8});
+    origin = php::concat({php::toString(tmp_var_4), get_str(198), php::toString(tmp_var_5), tmp_var_8});
     tmp_var_4.unset();
     tmp_var_5.unset();
     tmp_var_8.unset();
-    if (get_function_resolution_cache(FunctionResolutionCacheId{34}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{34}) = php::fn::function_exists(get_str(198)) ? 1 : 2; }
-    tmp_var_9 = get_function_resolution_cache(FunctionResolutionCacheId{34}) == 1 ? get_func(RequestFuncId{12}, get_str(198)) : get_persistent_func(PersistentFuncId{13}, get_str(199));
-    if (php::toBool(php::call(tmp_var_9, php::VarList{url, get_str(241)}))) {
-        tmp_var_10 = p.item(get_str(237), false);
-        tmp_var_11 = (php::concat({php::toString(tmp_var_10), get_str(240), url}));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{34}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{34}) = php::fn::function_exists(get_str(199)) ? 1 : 2; }
+    tmp_var_9 = get_function_resolution_cache(FunctionResolutionCacheId{34}) == 1 ? get_func(RequestFuncId{12}, get_str(199)) : get_persistent_func(PersistentFuncId{15}, get_str(200));
+    if (php::toBool(php::call(tmp_var_9, php::VarList{url, get_str(242)}))) {
+        tmp_var_10 = p.item(get_str(238), false);
+        tmp_var_11 = (php::concat({php::toString(tmp_var_10), get_str(241), url}));
         tmp_var_10.unset();
         return tmp_var_11;
     }
-    if (get_function_resolution_cache(FunctionResolutionCacheId{35}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{35}) = php::fn::function_exists(get_str(198)) ? 1 : 2; }
-    tmp_var_12 = get_function_resolution_cache(FunctionResolutionCacheId{35}) == 1 ? get_func(RequestFuncId{12}, get_str(198)) : get_persistent_func(PersistentFuncId{13}, get_str(199));
-    if (php::toBool(php::call(tmp_var_12, php::VarList{url, get_str(210)}))) {
+    if (get_function_resolution_cache(FunctionResolutionCacheId{35}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{35}) = php::fn::function_exists(get_str(199)) ? 1 : 2; }
+    tmp_var_12 = get_function_resolution_cache(FunctionResolutionCacheId{35}) == 1 ? get_func(RequestFuncId{12}, get_str(199)) : get_persistent_func(PersistentFuncId{15}, get_str(200));
+    if (php::toBool(php::call(tmp_var_12, php::VarList{url, get_str(211)}))) {
         tmp_var_13 = (php::concat(origin, url));
         return tmp_var_13;
     }
-    if (php::exists(p, {{php::ArrayDimFetch, php::Var(get_str(242))}}, tmp_var_15)) {
+    if (php::exists(p, {{php::ArrayDimFetch, php::Var(get_str(243))}}, tmp_var_15)) {
         tmp_var_14 = tmp_var_15;
     } else {
-        tmp_var_14 = get_str(210);
+        tmp_var_14 = get_str(211);
     }
     path = php::toString(tmp_var_14);
-    if (get_function_resolution_cache(FunctionResolutionCacheId{36}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{36}) = php::fn::function_exists(get_str(215)) ? 1 : 2; }
-    tmp_var_16 = get_function_resolution_cache(FunctionResolutionCacheId{36}) == 1 ? get_func(RequestFuncId{15}, get_str(215)) : get_persistent_func(PersistentFuncId{16}, get_str(216));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{36}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{36}) = php::fn::function_exists(get_str(216)) ? 1 : 2; }
+    tmp_var_16 = get_function_resolution_cache(FunctionResolutionCacheId{36}) == 1 ? get_func(RequestFuncId{15}, get_str(216)) : get_persistent_func(PersistentFuncId{18}, get_str(217));
     tmp_var_17 = path;
-    if (get_function_resolution_cache(FunctionResolutionCacheId{37}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{37}) = php::fn::function_exists(get_str(213)) ? 1 : 2; }
-    tmp_var_18 = get_function_resolution_cache(FunctionResolutionCacheId{37}) == 1 ? get_func(RequestFuncId{14}, get_str(213)) : get_persistent_func(PersistentFuncId{15}, get_str(214));
-    tmp_var_19 = php::toInt(php::call(tmp_var_18, php::VarList{path, get_str(210)}));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{37}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{37}) = php::fn::function_exists(get_str(214)) ? 1 : 2; }
+    tmp_var_18 = get_function_resolution_cache(FunctionResolutionCacheId{37}) == 1 ? get_func(RequestFuncId{14}, get_str(214)) : get_persistent_func(PersistentFuncId{17}, get_str(215));
+    tmp_var_19 = php::toInt(php::call(tmp_var_18, php::VarList{path, get_str(211)}));
     tmp_var_20 = php::toInt(((tmp_var_19) + (1L)));
     dir = php::call(tmp_var_16, php::VarList{tmp_var_17, 0L, tmp_var_20});
     tmp_var_17.unset();
@@ -329,39 +329,39 @@ php::Var php_nativeplaywright__util__remotevalue(php::Object &this_, php::Array 
     php::Var tmp_var_7;
     php::Var tmp_var_8;
 
-    if (php::toBool(php::exists(ro, {{php::ArrayDimFetch, php::Var(get_str(243))}}))) {
-        tmp_var_0 = php::toString(ro.get(get_str(243)));
+    if (php::toBool(php::exists(ro, {{php::ArrayDimFetch, php::Var(get_str(244))}}))) {
+        tmp_var_0 = php::toString(ro.get(get_str(244)));
         tmp_var_5 = ([&]() -> php::Var {
             bool tmp_var_1 = false;
             if (!tmp_var_1) {
-                tmp_var_1 = php::same(tmp_var_0, get_str(244));
+                tmp_var_1 = php::same(tmp_var_0, get_str(245));
             }
             if (tmp_var_1) {
-                return php::constant(get_str(245), php::ConstantLookup::UnqualifiedInNamespace);
+                return php::constant(get_str(246), php::ConstantLookup::UnqualifiedInNamespace);
             }
             bool tmp_var_2 = false;
             if (!tmp_var_2) {
-                tmp_var_2 = php::same(tmp_var_0, get_str(246));
+                tmp_var_2 = php::same(tmp_var_0, get_str(247));
             }
             if (tmp_var_2) {
-                return php::constant(get_str(247), php::ConstantLookup::UnqualifiedInNamespace);
+                return php::constant(get_str(248), php::ConstantLookup::UnqualifiedInNamespace);
             }
             bool tmp_var_3 = false;
             if (!tmp_var_3) {
-                tmp_var_3 = php::same(tmp_var_0, get_str(248));
+                tmp_var_3 = php::same(tmp_var_0, get_str(249));
             }
             if (tmp_var_3) {
-                return -(php::constant(get_str(247), php::ConstantLookup::UnqualifiedInNamespace));
+                return -(php::constant(get_str(248), php::ConstantLookup::UnqualifiedInNamespace));
             }
             bool tmp_var_4 = false;
             if (!tmp_var_4) {
-                tmp_var_4 = php::same(tmp_var_0, get_str(249));
+                tmp_var_4 = php::same(tmp_var_0, get_str(250));
             }
             if (tmp_var_4) {
                 return -0.0;
             }
             {
-                return php::toString(ro.get(get_str(243)));
+                return php::toString(ro.get(get_str(244)));
             }
         }());
         return tmp_var_5;
@@ -388,21 +388,21 @@ php::Bool php_nativeplaywright__util__isfunction(php::Object &this_, php::Str js
     php::Bool tmp_var_8 = 0;
     php::Bool tmp_var_9 = 0;
 
-    if (get_function_resolution_cache(FunctionResolutionCacheId{38}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{38}) = php::fn::function_exists(get_str(250)) ? 1 : 2; }
-    tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{38}) == 1 ? get_func(RequestFuncId{18}, get_str(250)) : get_persistent_func(PersistentFuncId{20}, get_str(251));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{38}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{38}) = php::fn::function_exists(get_str(251)) ? 1 : 2; }
+    tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{38}) == 1 ? get_func(RequestFuncId{18}, get_str(251)) : get_persistent_func(PersistentFuncId{22}, get_str(252));
     s = php::call(tmp_var_0, php::VarList{js});
-    if (get_function_resolution_cache(FunctionResolutionCacheId{39}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{39}) = php::fn::function_exists(get_str(193)) ? 1 : 2; }
-    tmp_var_1 = get_function_resolution_cache(FunctionResolutionCacheId{39}) == 1 ? get_func(RequestFuncId{10}, get_str(193)) : get_persistent_func(PersistentFuncId{11}, get_str(194));
-    tmp_var_2 = php::call(tmp_var_1, php::VarList{get_str(252), s});
+    if (get_function_resolution_cache(FunctionResolutionCacheId{39}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{39}) = php::fn::function_exists(get_str(194)) ? 1 : 2; }
+    tmp_var_1 = get_function_resolution_cache(FunctionResolutionCacheId{39}) == 1 ? get_func(RequestFuncId{10}, get_str(194)) : get_persistent_func(PersistentFuncId{13}, get_str(195));
+    tmp_var_2 = php::call(tmp_var_1, php::VarList{get_str(253), s});
     tmp_var_3 = php::toBool(php::same(tmp_var_2, 1L));
     tmp_var_2.unset();
     if (php::toBool(tmp_var_3)) {
         tmp_var_4 = (php::toBool(true));
         return tmp_var_4;
     }
-    if (get_function_resolution_cache(FunctionResolutionCacheId{40}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{40}) = php::fn::function_exists(get_str(193)) ? 1 : 2; }
-    tmp_var_5 = get_function_resolution_cache(FunctionResolutionCacheId{40}) == 1 ? get_func(RequestFuncId{10}, get_str(193)) : get_persistent_func(PersistentFuncId{11}, get_str(194));
-    tmp_var_6 = php::call(tmp_var_5, php::VarList{get_str(253), s});
+    if (get_function_resolution_cache(FunctionResolutionCacheId{40}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{40}) = php::fn::function_exists(get_str(194)) ? 1 : 2; }
+    tmp_var_5 = get_function_resolution_cache(FunctionResolutionCacheId{40}) == 1 ? get_func(RequestFuncId{10}, get_str(194)) : get_persistent_func(PersistentFuncId{13}, get_str(195));
+    tmp_var_6 = php::call(tmp_var_5, php::VarList{get_str(254), s});
     tmp_var_7 = php::toBool(php::same(tmp_var_6, 1L));
     tmp_var_6.unset();
     if (php::toBool(tmp_var_7)) {
@@ -418,14 +418,14 @@ php::Array php_nativeplaywright__util__headersarray(php::Object &this_, php::Arr
     php::Var v;
     php::Var k;
     php::Var tmp_var_2;
-    zend_class_entry *tmp_var_1 = get_persistent_class(PersistentClassId{9}, get_str(255));
+    zend_class_entry *tmp_var_1 = get_persistent_class(PersistentClassId{9}, get_str(256));
 
     out = php::Array{};
     {
         php::ForeachIterator tmp_var_0{headers, false, tmp_var_1};
         while (tmp_var_0.nextKeyValue(k, v)) {
             ((tmp_var_2 = php::Array{
-                { get_str(254).str(), php::Var(php::toString(k)) }, 
+                { get_str(255).str(), php::Var(php::toString(k)) }, 
                 { get_str(109).str(), php::Var(php::toString(v)) }
             }, out.append(tmp_var_2)), tmp_var_2);
         }
@@ -439,14 +439,14 @@ php::Array php_nativeplaywright__util__lowerheaders(php::Object &this_, php::Arr
     php::Var k;
     zend_function * tmp_var_2;
     php::Var tmp_var_3;
-    zend_class_entry *tmp_var_1 = get_persistent_class(PersistentClassId{9}, get_str(255));
+    zend_class_entry *tmp_var_1 = get_persistent_class(PersistentClassId{9}, get_str(256));
 
     out = php::Array{};
     {
         php::ForeachIterator tmp_var_0{h, false, tmp_var_1};
         while (tmp_var_0.nextKeyValue(k, v)) {
-            if (get_function_resolution_cache(FunctionResolutionCacheId{41}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{41}) = php::fn::function_exists(get_str(256)) ? 1 : 2; }
-            tmp_var_2 = get_function_resolution_cache(FunctionResolutionCacheId{41}) == 1 ? get_func(RequestFuncId{19}, get_str(256)) : get_persistent_func(PersistentFuncId{21}, get_str(257));
+            if (get_function_resolution_cache(FunctionResolutionCacheId{41}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{41}) = php::fn::function_exists(get_str(257)) ? 1 : 2; }
+            tmp_var_2 = get_function_resolution_cache(FunctionResolutionCacheId{41}) == 1 ? get_func(RequestFuncId{19}, get_str(257)) : get_persistent_func(PersistentFuncId{23}, get_str(258));
             ((tmp_var_3 = php::toString(v), out.item(php::call(tmp_var_2, php::VarList{php::toString(k)}), true) = tmp_var_3), tmp_var_3);
         }
     }
@@ -472,13 +472,13 @@ php::Float php_nativeplaywright__util__toinches(php::Object &this_, php::Var v) 
     php::Float tmp_var_16 = 0;
     zend_class_entry *tmp_var_9 = get_persistent_class(PersistentClassId{0}, get_str(75));
 
-    if (get_function_resolution_cache(FunctionResolutionCacheId{42}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{42}) = php::fn::function_exists(get_str(258)) ? 1 : 2; }
-    tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{42}) == 1 ? get_func(RequestFuncId{20}, get_str(258)) : get_persistent_func(PersistentFuncId{22}, get_str(259));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{42}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{42}) = php::fn::function_exists(get_str(259)) ? 1 : 2; }
+    tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{42}) == 1 ? get_func(RequestFuncId{20}, get_str(259)) : get_persistent_func(PersistentFuncId{24}, get_str(260));
     tmp_var_1 = php::call(tmp_var_0, php::VarList{v});
     tmp_var_3 = php::toBool([&]() -> bool {
         if (!(php::toBool(tmp_var_1))) {
-            if (get_function_resolution_cache(FunctionResolutionCacheId{43}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{43}) = php::fn::function_exists(get_str(260)) ? 1 : 2; }
-            tmp_var_2 = get_function_resolution_cache(FunctionResolutionCacheId{43}) == 1 ? get_func(RequestFuncId{21}, get_str(260)) : get_persistent_func(PersistentFuncId{23}, get_str(261));
+            if (get_function_resolution_cache(FunctionResolutionCacheId{43}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{43}) = php::fn::function_exists(get_str(261)) ? 1 : 2; }
+            tmp_var_2 = get_function_resolution_cache(FunctionResolutionCacheId{43}) == 1 ? get_func(RequestFuncId{21}, get_str(261)) : get_persistent_func(PersistentFuncId{25}, get_str(262));
             return php::toBool(php::call(tmp_var_2, php::VarList{v}));
         }
         return true;
@@ -488,47 +488,47 @@ php::Float php_nativeplaywright__util__toinches(php::Object &this_, php::Var v) 
         tmp_var_4 = (php::toFloat(((php::toFloat(v)) / (php::toFloat(96L)))));
         return tmp_var_4;
     }
-    if (get_function_resolution_cache(FunctionResolutionCacheId{44}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{44}) = php::fn::function_exists(get_str(262)) ? 1 : 2; }
-    tmp_var_5 = get_function_resolution_cache(FunctionResolutionCacheId{44}) == 1 ? get_func(RequestFuncId{22}, get_str(262)) : get_persistent_func(PersistentFuncId{24}, get_str(263));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{44}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{44}) = php::fn::function_exists(get_str(263)) ? 1 : 2; }
+    tmp_var_5 = get_function_resolution_cache(FunctionResolutionCacheId{44}) == 1 ? get_func(RequestFuncId{22}, get_str(263)) : get_persistent_func(PersistentFuncId{26}, get_str(264));
     s = php::call(tmp_var_5, php::VarList{php::toString(v)});
-    if (get_function_resolution_cache(FunctionResolutionCacheId{45}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{45}) = php::fn::function_exists(get_str(193)) ? 1 : 2; }
-    tmp_var_6 = get_function_resolution_cache(FunctionResolutionCacheId{45}) == 1 ? get_func(RequestFuncId{10}, get_str(193)) : get_persistent_func(PersistentFuncId{11}, get_str(194));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{45}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{45}) = php::fn::function_exists(get_str(194)) ? 1 : 2; }
+    tmp_var_6 = get_function_resolution_cache(FunctionResolutionCacheId{45}) == 1 ? get_func(RequestFuncId{10}, get_str(194)) : get_persistent_func(PersistentFuncId{13}, get_str(195));
     tmp_var_7 = [&]() -> php::Var {
     if (get_function_resolution_cache(FunctionResolutionCacheId{45}) == 1) {
-    return php::call(tmp_var_6, php::VarList{get_str(264), s, m});
+    return php::call(tmp_var_6, php::VarList{get_str(265), s, m});
     }
-    return php::call(tmp_var_6, php::VarList{get_str(264), s, &m});
+    return php::call(tmp_var_6, php::VarList{get_str(265), s, &m});
     }();
     tmp_var_8 = php::toBool(!(php::same(tmp_var_7, 1L)));
     tmp_var_7.unset();
     if (php::toBool(tmp_var_8)) {
-        php::throwException(php::newObject(tmp_var_9, php::VarList{php::concat({get_str(265), s})}));
+        php::throwException(php::newObject(tmp_var_9, php::VarList{php::concat({get_str(266), s})}));
     }
     n = php::toFloat(m.item(1L, false));
     if (php::exists(m, {{php::ArrayDimFetch, php::Var(2L)}}, tmp_var_11)) {
         tmp_var_10 = tmp_var_11;
     } else {
-        tmp_var_10 = get_str(266);
+        tmp_var_10 = get_str(267);
     }
     tmp_var_12 = tmp_var_10;
     tmp_var_16 = (php::toFloat([&]() -> php::Float {
         bool tmp_var_13 = false;
         if (!tmp_var_13) {
-            tmp_var_13 = php::same(tmp_var_12, get_str(267));
+            tmp_var_13 = php::same(tmp_var_12, get_str(268));
         }
         if (tmp_var_13) {
             return n;
         }
         bool tmp_var_14 = false;
         if (!tmp_var_14) {
-            tmp_var_14 = php::same(tmp_var_12, get_str(268));
+            tmp_var_14 = php::same(tmp_var_12, get_str(269));
         }
         if (tmp_var_14) {
             return ((n) / (2.54));
         }
         bool tmp_var_15 = false;
         if (!tmp_var_15) {
-            tmp_var_15 = php::same(tmp_var_12, get_str(269));
+            tmp_var_15 = php::same(tmp_var_12, get_str(270));
         }
         if (tmp_var_15) {
             return ((n) / (25.399999999999999));
@@ -549,12 +549,12 @@ php::Str php_nativeplaywright__util__mimetype(php::Object &this_, php::Str path)
     php::Var tmp_var_4;
     php::Str tmp_var_18;
 
-    if (get_function_resolution_cache(FunctionResolutionCacheId{46}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{46}) = php::fn::function_exists(get_str(256)) ? 1 : 2; }
-    tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{46}) == 1 ? get_func(RequestFuncId{19}, get_str(256)) : get_persistent_func(PersistentFuncId{21}, get_str(257));
-    if (get_function_resolution_cache(FunctionResolutionCacheId{47}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{47}) = php::fn::function_exists(get_str(270)) ? 1 : 2; }
-    tmp_var_1 = get_function_resolution_cache(FunctionResolutionCacheId{47}) == 1 ? get_func(RequestFuncId{23}, get_str(270)) : get_persistent_func(PersistentFuncId{25}, get_str(271));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{46}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{46}) = php::fn::function_exists(get_str(257)) ? 1 : 2; }
+    tmp_var_0 = get_function_resolution_cache(FunctionResolutionCacheId{46}) == 1 ? get_func(RequestFuncId{19}, get_str(257)) : get_persistent_func(PersistentFuncId{23}, get_str(258));
+    if (get_function_resolution_cache(FunctionResolutionCacheId{47}) == 0) { get_function_resolution_cache(FunctionResolutionCacheId{47}) = php::fn::function_exists(get_str(271)) ? 1 : 2; }
+    tmp_var_1 = get_function_resolution_cache(FunctionResolutionCacheId{47}) == 1 ? get_func(RequestFuncId{23}, get_str(271)) : get_persistent_func(PersistentFuncId{27}, get_str(272));
     tmp_var_2 = path;
-    tmp_var_3 = php::constant(get_str(272), php::ConstantLookup::UnqualifiedInNamespace);
+    tmp_var_3 = php::constant(get_str(273), php::ConstantLookup::UnqualifiedInNamespace);
     tmp_var_4 = php::call(tmp_var_1, php::VarList{tmp_var_2, tmp_var_3});
     tmp_var_2.unset();
     tmp_var_3.unset();
@@ -563,106 +563,106 @@ php::Str php_nativeplaywright__util__mimetype(php::Object &this_, php::Str path)
     tmp_var_18 = ([&]() -> php::Str {
         bool tmp_var_5 = false;
         if (!tmp_var_5) {
-            tmp_var_5 = php::same(ext, get_str(273));
-        }
-        if (!tmp_var_5) {
             tmp_var_5 = php::same(ext, get_str(274));
         }
+        if (!tmp_var_5) {
+            tmp_var_5 = php::same(ext, get_str(275));
+        }
         if (tmp_var_5) {
-            return get_str(275);
+            return get_str(276);
         }
         bool tmp_var_6 = false;
         if (!tmp_var_6) {
-            tmp_var_6 = php::same(ext, get_str(276));
-        }
-        if (!tmp_var_6) {
             tmp_var_6 = php::same(ext, get_str(277));
         }
+        if (!tmp_var_6) {
+            tmp_var_6 = php::same(ext, get_str(278));
+        }
         if (tmp_var_6) {
-            return get_str(278);
+            return get_str(279);
         }
         bool tmp_var_7 = false;
         if (!tmp_var_7) {
-            tmp_var_7 = php::same(ext, get_str(279));
+            tmp_var_7 = php::same(ext, get_str(280));
         }
         if (tmp_var_7) {
-            return get_str(280);
+            return get_str(281);
         }
         bool tmp_var_8 = false;
         if (!tmp_var_8) {
-            tmp_var_8 = php::same(ext, get_str(281));
+            tmp_var_8 = php::same(ext, get_str(282));
         }
         if (tmp_var_8) {
-            return get_str(282);
+            return get_str(283);
         }
         bool tmp_var_9 = false;
         if (!tmp_var_9) {
-            tmp_var_9 = php::same(ext, get_str(283));
+            tmp_var_9 = php::same(ext, get_str(284));
         }
         if (tmp_var_9) {
-            return get_str(284);
+            return get_str(285);
         }
         bool tmp_var_10 = false;
         if (!tmp_var_10) {
-            tmp_var_10 = php::same(ext, get_str(285));
-        }
-        if (!tmp_var_10) {
             tmp_var_10 = php::same(ext, get_str(286));
         }
+        if (!tmp_var_10) {
+            tmp_var_10 = php::same(ext, get_str(287));
+        }
         if (tmp_var_10) {
-            return get_str(287);
+            return get_str(288);
         }
         bool tmp_var_11 = false;
         if (!tmp_var_11) {
-            tmp_var_11 = php::same(ext, get_str(288));
+            tmp_var_11 = php::same(ext, get_str(289));
         }
         if (tmp_var_11) {
-            return get_str(289);
+            return get_str(290);
         }
         bool tmp_var_12 = false;
         if (!tmp_var_12) {
-            tmp_var_12 = php::same(ext, get_str(290));
+            tmp_var_12 = php::same(ext, get_str(291));
         }
         if (tmp_var_12) {
-            return get_str(291);
+            return get_str(292);
         }
         bool tmp_var_13 = false;
         if (!tmp_var_13) {
-            tmp_var_13 = php::same(ext, get_str(292));
+            tmp_var_13 = php::same(ext, get_str(293));
         }
         if (tmp_var_13) {
-            return get_str(293);
+            return get_str(294);
         }
         bool tmp_var_14 = false;
         if (!tmp_var_14) {
-            tmp_var_14 = php::same(ext, get_str(294));
+            tmp_var_14 = php::same(ext, get_str(295));
         }
         if (tmp_var_14) {
-            return get_str(295);
+            return get_str(296);
         }
         bool tmp_var_15 = false;
         if (!tmp_var_15) {
-            tmp_var_15 = php::same(ext, get_str(296));
+            tmp_var_15 = php::same(ext, get_str(297));
         }
         if (tmp_var_15) {
-            return get_str(297);
+            return get_str(298);
         }
         bool tmp_var_16 = false;
         if (!tmp_var_16) {
-            tmp_var_16 = php::same(ext, get_str(298));
+            tmp_var_16 = php::same(ext, get_str(299));
         }
         if (tmp_var_16) {
-            return get_str(299);
+            return get_str(300);
         }
         bool tmp_var_17 = false;
         if (!tmp_var_17) {
-            tmp_var_17 = php::same(ext, get_str(300));
+            tmp_var_17 = php::same(ext, get_str(301));
         }
         if (tmp_var_17) {
-            return get_str(301);
+            return get_str(302);
         }
         {
-            return get_str(302);
+            return get_str(303);
         }
     }());
     return tmp_var_18;
@@ -676,12 +676,12 @@ ZEND_METHOD(NativePlaywright_Util, urlMatches) {
         php::Var arg_pattern = php::getCallArg(0);
         php::Var raw_arg_url = php::getCallArg(1);
         if (UNEXPECTED(!(raw_arg_url.isString()))) {
-            php::throwArgumentTypeError(raw_arg_url, get_str(205), 2, get_str(202), get_str(98));
+            php::throwArgumentTypeError(raw_arg_url, get_str(206), 2, get_str(203), get_str(98));
         }
         php::Str arg_url = php::toString(raw_arg_url);
         php::Var raw_arg_baseURL = php::getCallArg(2, php_nativeplaywright__util__urlmatches_arg_2_default_value());
         if (UNEXPECTED(!(raw_arg_baseURL.isString()))) {
-            php::throwArgumentTypeError(raw_arg_baseURL, get_str(205), 3, get_str(303), get_str(98));
+            php::throwArgumentTypeError(raw_arg_baseURL, get_str(206), 3, get_str(304), get_str(98));
         }
         php::Str arg_baseURL = php::toString(raw_arg_baseURL);
         auto retval = php_nativeplaywright__util__urlmatches(this_, php::takeValue(arg_pattern),php::takeValue(arg_url),php::takeValue(arg_baseURL));
@@ -698,7 +698,7 @@ ZEND_METHOD(NativePlaywright_Util, isRegex) {
         php::checkCallArgCount(1, 1, false);
         php::Var raw_arg_s = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_s.isString()))) {
-            php::throwArgumentTypeError(raw_arg_s, get_str(191), 1, get_str(192), get_str(98));
+            php::throwArgumentTypeError(raw_arg_s, get_str(192), 1, get_str(193), get_str(98));
         }
         php::Str arg_s = php::toString(raw_arg_s);
         auto retval = php_nativeplaywright__util__isregex(this_, php::takeValue(arg_s));
@@ -715,7 +715,7 @@ ZEND_METHOD(NativePlaywright_Util, globToRegex) {
         php::checkCallArgCount(1, 1, false);
         php::Var raw_arg_glob = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_glob.isString()))) {
-            php::throwArgumentTypeError(raw_arg_glob, get_str(203), 1, get_str(204), get_str(98));
+            php::throwArgumentTypeError(raw_arg_glob, get_str(204), 1, get_str(205), get_str(98));
         }
         php::Str arg_glob = php::toString(raw_arg_glob);
         auto retval = php_nativeplaywright__util__globtoregex(this_, php::takeValue(arg_glob));
@@ -732,12 +732,12 @@ ZEND_METHOD(NativePlaywright_Util, resolveUrl) {
         php::checkCallArgCount(2, 2, false);
         php::Var raw_arg_base = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_base.isString()))) {
-            php::throwArgumentTypeError(raw_arg_base, get_str(201), 1, get_str(304), get_str(98));
+            php::throwArgumentTypeError(raw_arg_base, get_str(202), 1, get_str(305), get_str(98));
         }
         php::Str arg_base = php::toString(raw_arg_base);
         php::Var raw_arg_url = php::getCallArg(1);
         if (UNEXPECTED(!(raw_arg_url.isString()))) {
-            php::throwArgumentTypeError(raw_arg_url, get_str(201), 2, get_str(202), get_str(98));
+            php::throwArgumentTypeError(raw_arg_url, get_str(202), 2, get_str(203), get_str(98));
         }
         php::Str arg_url = php::toString(raw_arg_url);
         auto retval = php_nativeplaywright__util__resolveurl(this_, php::takeValue(arg_base),php::takeValue(arg_url));
@@ -767,7 +767,7 @@ ZEND_METHOD(NativePlaywright_Util, isFunction) {
         php::checkCallArgCount(1, 1, false);
         php::Var raw_arg_js = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_js.isString()))) {
-            php::throwArgumentTypeError(raw_arg_js, get_str(305), 1, get_str(276), get_str(98));
+            php::throwArgumentTypeError(raw_arg_js, get_str(306), 1, get_str(277), get_str(98));
         }
         php::Str arg_js = php::toString(raw_arg_js);
         auto retval = php_nativeplaywright__util__isfunction(this_, php::takeValue(arg_js));
@@ -823,7 +823,7 @@ ZEND_METHOD(NativePlaywright_Util, mimeType) {
         php::checkCallArgCount(1, 1, false);
         php::Var raw_arg_path = php::getCallArg(0);
         if (UNEXPECTED(!(raw_arg_path.isString()))) {
-            php::throwArgumentTypeError(raw_arg_path, get_str(306), 1, get_str(242), get_str(98));
+            php::throwArgumentTypeError(raw_arg_path, get_str(307), 1, get_str(243), get_str(98));
         }
         php::Str arg_path = php::toString(raw_arg_path);
         auto retval = php_nativeplaywright__util__mimetype(this_, php::takeValue(arg_path));

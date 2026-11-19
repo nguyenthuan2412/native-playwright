@@ -1,5 +1,5 @@
 /* This is a generated file, edit the .stub.php file instead.
- * Stub hash: e16ed16112ad705343c56808b166cea7bb42ea92 */
+ * Stub hash: 7ec5626b437018af5e5a12677fcf181778119046 */
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_class_NativePlaywright_Page___construct, 0, 0, 5)
 	ZEND_ARG_OBJ_INFO(0, browser, NativePlaywright\\Browser, 0)

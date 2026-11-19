@@ -1,5 +1,5 @@
 /* This is a generated file, edit the .stub.php file instead.
- * Stub hash: b8139ff7ad2c44a5db3162ac4a1fa65c6d048931 */
+ * Stub hash: ab1d0a75fa4b76b440790505ad30b49affaff999 */
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_class_NativePlaywright_SwooleTransport___construct, 0, 0, 1)
 	ZEND_ARG_OBJ_INFO(0, conn, NativePlaywright\\Connection, 0)
@@ -65,7 +65,7 @@ static zend_class_entry *php_register_class_NativePlaywright_SwooleTransport(zen
 	zend_string *property_done_name = zend_string_init("done", sizeof("done") - 1, true);
 	typephp_prepare_property_redeclaration(class_entry, property_done_name);
 	zend_string *property_done_class_Swoole_Coroutine_Channel = zend_string_init("Swoole\\Coroutine\\Channel", sizeof("Swoole\\Coroutine\\Channel")-1, 1);
-	zend_declare_typed_property(class_entry, property_done_name, &property_done_default_value, ZEND_ACC_PRIVATE, NULL, (zend_type) ZEND_TYPE_INIT_CLASS(property_done_class_Swoole_Coroutine_Channel, 0, 0));
+	zend_declare_typed_property(class_entry, property_done_name, &property_done_default_value, ZEND_ACC_PRIVATE, NULL, (zend_type) ZEND_TYPE_INIT_CLASS(property_done_class_Swoole_Coroutine_Channel, 0, MAY_BE_NULL));
 	zend_string_release_ex(property_done_name, true);
 
 	zval property_closing_default_value;
