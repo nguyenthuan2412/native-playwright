@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><title>Fixture</title></head>
+<body>
+  <h1>Welcome</h1>
+  <nav><a href="/second.html">Second page</a> <a id="pop" href="/second.html" target="_blank">Popup</a> <a href="/download.php" id="dl">Download</a></nav>
+  <form id="f" onsubmit="event.preventDefault(); document.getElementById('out').textContent = JSON.stringify(Object.fromEntries(new FormData(this)))">
+    <label for="name">Full name</label> <input id="name" name="name" placeholder="Your name">
+    <label>Email <input name="email" type="email"></label>
+    <input type="checkbox" name="agree" id="agree"><label for="agree">I agree</label>
+    <select name="color"><option value="r">Red</option><option value="g">Green</option><option value="b">Blue</option></select>
+    <textarea name="bio"></textarea>
+    <input type="file" id="file" name="file">
+    <button type="submit" data-testid="submit">Send</button>
+    <button type="button" disabled>Disabled</button>
+  </form>
+  <pre id="out"></pre>
+  <ul><li>Apple</li><li>Banana <b>split</b></li><li>Cherry</li></ul>
+  <div id="later"></div>
+  <div id="hidden" style="display:none">secret</div>
+  <button id="alert" onclick="window.r = confirm('Sure?')">Confirm</button>
+  <button id="moving" style="position:relative" onclick="this.textContent='moved-clicked'">Moving</button>
+  <div style="height:2000px"></div>
+  <button id="far" onclick="this.textContent='far-clicked'">Far away</button>
+  <iframe name="inner" src="/frame.html"></iframe>
+  <iframe name="xorigin" id="xo" src="http://127.0.0.1:8002/frame.html"></iframe>
+  <script>
+    setTimeout(() => { document.getElementById('later').innerHTML = '<span class="late">Loaded later</span>'; }, 300);
+    console.log('hello from page', 42);
+    fetch('/api/data.json').then(r => r.json()).then(j => { window.apiData = j; });
+  </script>
+</body></html>

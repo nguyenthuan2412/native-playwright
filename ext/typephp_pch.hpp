@@ -1,0 +1,11 @@
+#pragma once
+#include <cstring>
+#include <phpx.h>
+#include <phpx_helper.h>
+#include <phpx_big_int.h>
+#include <phpx_big_float.h>
+#include <phpx_decimal.h>
+#include <phpx_python.h>
+#include <typephp_helper.h>
+#include <typephp_fiber_generator.h>
+#include <phpx_std.h>

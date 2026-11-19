@@ -1,0 +1,28 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  pecl-package:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          tools: pecl
+      - name: Check version matches tag
+        run: |
+          v=$(sed -n 's:.*<release>\(.*\)</release>.*:\1:p' ext/package.xml | head -1)
+          test "v$v" = "${GITHUB_REF_NAME}" || { echo "package.xml version $v != tag ${GITHUB_REF_NAME}"; exit 1; }
+      - name: Build PECL package
+        run: cd ext && pecl package package.xml && mv native_playwright-*.tgz ..
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" native_playwright-*.tgz --generate-notes --title "$GITHUB_REF_NAME"

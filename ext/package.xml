@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.10.13" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>native_playwright</name>
+ <channel>pecl.php.net</channel>
+ <summary>Playwright-style browser automation for PHP over CDP, without Node.js</summary>
+ <description>Drives Chromium directly over the Chrome DevTools Protocol (pipe transport) with a Playwright-compatible API: locators with auto-waiting, network interception, frames, dialogs, downloads, screenshots and PDF. Works in plain PHP and inside Swoole coroutines. Written in PHP and compiled to C++ with TypePHP.</description>
+ <lead>
+  <name>Native Playwright maintainers</name>
+  <user>native-playwright</user>
+  <email>maintainers@example.invalid</email>
+  <active>yes</active>
+ </lead>
+ <date>2026-11-19</date>
+ <version>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</license>
+ <notes>See https://github.com/native-playwright/native-playwright/releases</notes>
+ <contents>
+  <dir name="/">
+   <file name="LICENSE" role="doc"/>
+   <file name="config.m4" role="src"/>
+   <file name="generated/include/php_native_playwright_all_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_runtime_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_BlockingTransport_ce405677f2_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_BrowserContext_cd971a2234_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_BrowserType_4c5677b1e9_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Browser_5c08077592_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_CDPSession_9157bcb704_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Connection_0606cc101d_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_ConsoleMessage_4dcce5e3f4_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Dialog_73c802b322_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Download_e51727d17f_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_EventEmitter_2f3b042d92_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Exception_de2f0e3f97_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_FileChooser_b15955ae9f_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_FrameLocator_98aef2ee5b_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Frame_07e74a6952_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Injected_9eb67510a3_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_JSError_49ec4d0857_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Keyboard_4f4f2515ca_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Locator_206b2f41f4_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Mouse_1796713ced_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Page_0aa1495138_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Playwright_9ea0a9d754_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Request_db667c6252_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Response_f8b49507a2_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_RouteHandler_a91721537d_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Route_83d7a76f49_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_SwooleTransport_b44c3f18aa_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_TimeoutError_7a8c4a04a5_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Touchscreen_177469a54f_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Transport_e741c70096_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Util_9ee38d9e44_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_NativePlaywright_Waiter_65d6396c74_decl.h" role="src"/>
+   <file name="generated/include/php_native_playwright_src_native_pipe_a3a10585cb_decl.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_BlockingTransport_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_BrowserContext_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_BrowserType_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Browser_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_CDPSession_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Connection_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_ConsoleMessage_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Dialog_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Download_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_EventEmitter_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Exception_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_FileChooser_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_FrameLocator_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Frame_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Injected_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_JSError_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Keyboard_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Locator_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Mouse_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Page_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Playwright_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Request_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Response_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_RouteHandler_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Route_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_SwooleTransport_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_TimeoutError_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Touchscreen_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Transport_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Util_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_NativePlaywright_Waiter_arginfo.h" role="src"/>
+   <file name="generated/include/php_src_native_pipe_arginfo.h" role="src"/>
+   <file name="generated/src/BlockingTransport.cc" role="src"/>
+   <file name="generated/src/Browser.cc" role="src"/>
+   <file name="generated/src/BrowserContext.cc" role="src"/>
+   <file name="generated/src/BrowserType.cc" role="src"/>
+   <file name="generated/src/CDPSession.cc" role="src"/>
+   <file name="generated/src/Connection.cc" role="src"/>
+   <file name="generated/src/ConsoleMessage.cc" role="src"/>
+   <file name="generated/src/Dialog.cc" role="src"/>
+   <file name="generated/src/Download.cc" role="src"/>
+   <file name="generated/src/FileChooser.cc" role="src"/>
+   <file name="generated/src/Frame.cc" role="src"/>
+   <file name="generated/src/FrameLocator.cc" role="src"/>
+   <file name="generated/src/JSError.cc" role="src"/>
+   <file name="generated/src/Keyboard.cc" role="src"/>
+   <file name="generated/src/Locator.cc" role="src"/>
+   <file name="generated/src/Mouse.cc" role="src"/>
+   <file name="generated/src/Page.cc" role="src"/>
+   <file name="generated/src/Playwright.cc" role="src"/>
+   <file name="generated/src/Request.cc" role="src"/>
+   <file name="generated/src/Response.cc" role="src"/>
+   <file name="generated/src/Route.cc" role="src"/>
+   <file name="generated/src/RouteHandler.cc" role="src"/>
+   <file name="generated/src/SwooleTransport.cc" role="src"/>
+   <file name="generated/src/Touchscreen.cc" role="src"/>
+   <file name="generated/src/Transport.cc" role="src"/>
+   <file name="generated/src/Util.cc" role="src"/>
+   <file name="generated/src/Waiter.cc" role="src"/>
+   <file name="generated/src/extension.cc" role="src"/>
+   <file name="generated/src/php_native_playwright_src_NativePlaywright_BrowserType_4c5677b1e9_class_constants.cc" role="src"/>
+   <file name="generated/src/php_native_playwright_src_NativePlaywright_Locator_206b2f41f4_class_constants.cc" role="src"/>
+   <file name="native/pipe.cc" role="src"/>
+   <file name="phpx/LICENSE" role="doc"/>
+   <file name="phpx/include/phpx.h" role="src"/>
+   <file name="phpx/include/phpx_big_float.h" role="src"/>
+   <file name="phpx/include/phpx_big_int.h" role="src"/>
+   <file name="phpx/include/phpx_cast_policy.h" role="src"/>
+   <file name="phpx/include/phpx_compat.h" role="src"/>
+   <file name="phpx/include/phpx_decimal.h" role="src"/>
+   <file name="phpx/include/phpx_exception_policy.h" role="src"/>
+   <file name="phpx/include/phpx_ext.h" role="src"/>
+   <file name="phpx/include/phpx_fake_scope_guard.h" role="src"/>
+   <file name="phpx/include/phpx_helper.h" role="src"/>
+   <file name="phpx/include/phpx_native_gc.h" role="src"/>
+   <file name="phpx/include/phpx_operator.h" role="src"/>
+   <file name="phpx/include/phpx_python.h" role="src"/>
+   <file name="phpx/include/phpx_scope_guard.h" role="src"/>
+   <file name="phpx/include/phpx_std.h" role="src"/>
+   <file name="phpx/include/phpx_types.h" role="src"/>
+   <file name="phpx/include/std/array.h" role="src"/>
+   <file name="phpx/include/std/core.h" role="src"/>
+   <file name="phpx/include/std/ctype.h" role="src"/>
+   <file name="phpx/include/std/datetime.h" role="src"/>
+   <file name="phpx/include/std/fs.h" role="src"/>
+   <file name="phpx/include/std/hash.h" role="src"/>
+   <file name="phpx/include/std/json.h" role="src"/>
+   <file name="phpx/include/std/math.h" role="src"/>
+   <file name="phpx/include/std/misc.h" role="src"/>
+   <file name="phpx/include/std/random.h" role="src"/>
+   <file name="phpx/include/std/string.h" role="src"/>
+   <file name="phpx/include/typephp_fiber_generator.h" role="src"/>
+   <file name="phpx/include/typephp_helper.h" role="src"/>
+   <file name="phpx/include/typephp_opcode_table.h" role="src"/>
+   <file name="phpx/include/typephp_runtime.h" role="src"/>
+   <file name="phpx/include/typephp_sapi.h" role="src"/>
+   <file name="phpx/src/core/array.cc" role="src"/>
+   <file name="phpx/src/core/base.cc" role="src"/>
+   <file name="phpx/src/core/bcmath_nano.h" role="src"/>
+   <file name="phpx/src/core/big_float.cc" role="src"/>
+   <file name="phpx/src/core/big_int.cc" role="src"/>
+   <file name="phpx/src/core/class.cc" role="src"/>
+   <file name="phpx/src/core/closure.cc" role="src"/>
+   <file name="phpx/src/core/debug.cc" role="src"/>
+   <file name="phpx/src/core/decimal.cc" role="src"/>
+   <file name="phpx/src/core/extension.cc" role="src"/>
+   <file name="phpx/src/core/foreach_iterator.cc" role="src"/>
+   <file name="phpx/src/core/keyword_method.cc" role="src"/>
+   <file name="phpx/src/core/native_gc.cc" role="src"/>
+   <file name="phpx/src/core/object.cc" role="src"/>
+   <file name="phpx/src/core/python_bridge.cc" role="src"/>
+   <file name="phpx/src/core/runtime_init.h" role="src"/>
+   <file name="phpx/src/core/scope.cc" role="src"/>
+   <file name="phpx/src/core/slice.h" role="src"/>
+   <file name="phpx/src/core/string.cc" role="src"/>
+   <file name="phpx/src/core/type_check.cc" role="src"/>
+   <file name="phpx/src/core/variant.cc" role="src"/>
+   <file name="phpx/src/misc/php_cli_process_title.h" role="src"/>
+   <file name="phpx/src/misc/php_cli_process_title_arginfo.h" role="src"/>
+   <file name="phpx/src/misc/ps_title.h" role="src"/>
+   <file name="phpx/src/std/array.cc" role="src"/>
+   <file name="phpx/src/std/core.cc" role="src"/>
+   <file name="phpx/src/std/datetime.cc" role="src"/>
+   <file name="phpx/src/std/fs.cc" role="src"/>
+   <file name="phpx/src/std/hash.cc" role="src"/>
+   <file name="phpx/src/std/math.cc" role="src"/>
+   <file name="phpx/src/std/misc.cc" role="src"/>
+   <file name="phpx/src/std/string.cc" role="src"/>
+   <file name="phpx/src/typephp/typephp_attribute.cc" role="src"/>
+   <file name="phpx/src/typephp/typephp_call.cc" role="src"/>
+   <file name="phpx/src/typephp/typephp_fiber_generator.cc" role="src"/>
+   <file name="phpx/src/typephp/typephp_property.cc" role="src"/>
+   <file name="phpx/src/typephp/typephp_trait.cc" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/COPYRIGHT.txt" role="doc"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec++/decimal.cc" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec++/decimal.hh" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/basearith.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/basearith.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/bits.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/constants.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/constants.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/context.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/convolute.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/convolute.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/crt.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/crt.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/difradix2.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/difradix2.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/fnt.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/fnt.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/fourstep.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/fourstep.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/io.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/io.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/mpalloc.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/mpalloc.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/mpdecimal.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/mpdecimal.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/mpdecimal32vc.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/mpdecimal64vc.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/mpsignal.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/numbertheory.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/numbertheory.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/sixstep.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/sixstep.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/transpose.c" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/transpose.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/typearith.h" role="src"/>
+   <file name="phpx/thirdparty/mpdecimal/libmpdec/umodarith.h" role="src"/>
+   <file name="phpx/thirdparty/wren-gc/include/wren_gc.h" role="src"/>
+   <file name="phpx/thirdparty/wren-gc/src/wren_gc.c" role="src"/>
+   <file name="typephp_pch.hpp" role="src"/>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>8.4.0</min>
+    <max>8.5.99</max>
+   </php>
+   <pearinstaller>
+    <min>1.10.0</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <providesextension>native_playwright</providesextension>
+ <extsrcrelease>
+  <configureoption name="with-gmp-dir" default="no" prompt="GMP/MPFR install prefix (no = auto-detect)"/>
+ </extsrcrelease>
+</package>

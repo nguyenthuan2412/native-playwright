@@ -1,0 +1,9 @@
+name: native_playwright
+mode: ext
+version: 0.1.0
+cxx-std: c++17
+sources:
+  - src
+info:
+  Description: Native CDP browser automation (no Node.js), Swoole-coroutine aware
+  Transport: Chrome --remote-debugging-pipe

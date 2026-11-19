@@ -1,0 +1,24 @@
+/build/
+/bench/node_modules
+/vendor/
+*.so
+*.tgz
+.DS_Store
+# phpize artefacts if someone builds inside ext/
+/ext/.libs/
+/ext/modules/
+/ext/autom4te.cache/
+/ext/build/
+/ext/include/
+/ext/Makefile*
+/ext/config.h*
+/ext/config.log
+/ext/config.status
+/ext/config.nice
+/ext/configure*
+/ext/libtool
+/ext/run-tests.php
+/ext/**/*.lo
+/ext/**/*.o
+/ext/**/*.dep
+/ext/*.la

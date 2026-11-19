@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: PHP ${{ matrix.php }} (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.4', '8.5']
+        os: [ubuntu-24.04]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: swoole
+          tools: phpize, php-config
+
+      - name: Build dependencies
+        run: sudo apt-get update && sudo apt-get install -y libgmp-dev libmpfr-dev
+
+      - name: Build extension (phpize, as PECL/PIE do)
+        working-directory: ext
+        run: |
+          phpize
+          ./configure
+          make -j"$(nproc)"
+          php -d extension="$PWD/modules/native_playwright.so" --ri native_playwright
+
+      - name: Install chrome-headless-shell
+        run: |
+          npx --yes @puppeteer/browsers install chrome-headless-shell@stable --path "$HOME/chs" > chs.txt
+          echo "NATIVE_PLAYWRIGHT_CHROME=$(awk '{print $2}' chs.txt | tail -1)" >> "$GITHUB_ENV"
+
+      - name: End-to-end tests (blocking + Swoole)
+        run: EXT="$PWD/ext/modules/native_playwright.so" tests/run.sh

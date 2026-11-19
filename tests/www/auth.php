@@ -1,0 +1,1 @@
+<?php if (($_SERVER['PHP_AUTH_USER'] ?? '') !== 'u' || ($_SERVER['PHP_AUTH_PW'] ?? '') !== 'p') { header('WWW-Authenticate: Basic realm="x"'); http_response_code(401); echo 'no'; exit; } echo 'authed';
